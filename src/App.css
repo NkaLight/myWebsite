@@ -1,38 +1,220 @@
-.App {
-  text-align: center;
-}
+.app-container{
+  display: block;
+  width:100%;
+  height:100vh;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  margin:0px;
+  padding:0px;
+  
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.nav-container{
+  display: flex;
+  margin: 0px 50px;
+  padding-top:30px;
+  color:white;
+}
+.nav-container ul{
+  display: flex;
+  margin-left:auto;
+  list-style-type: none;
+}
+.nav-container a{
+  margin:0px 10px;
+  text-decoration: none;
+}
+.nav-container a:hover{
+  text-decoration: underline;
+  font-weight: 600;
+}
+.nav-container h3{
+  cursor: pointer;
+}
+.home-icon{
+  width:100px;
+  cursor: pointer;
+}
+.nav-toggle-theme{
+  display: flex;
+  width:35px;
+  height:15px;
+  cursor: pointer;
+  margin-top:23px;
+  margin-left:30px;
+}
+.masthead-container{
+  margin-top:100px;
+}
+.masthead-typedtext{
+  display: flex;
+  justify-content: center;
+  font-size: x-large;
+}
+.lower-masthead-anim{
+  opacity: 0;
+  margin-top:100px;
+  animation-delay: 8s;
+  animation-duration: 10s;
+  animation-name: fadeIn;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+.lower-masthead{
+  margin-top:100px;
+}
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+  100% {
+    opacity: 1;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.masthead-btn-container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
+.masthead-btn-container a{
+  text-decoration: none;
 
-.App-link {
-  color: #61dafb;
 }
-
-@keyframes App-logo-spin {
+.masthead-btns-darkMode{
+  color:white;
+  padding:15px;
+  margin:10px;
+  margin-left:10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.masthead-btns-darkMode:hover{
+  animation-delay: 0ms;
+  animation-duration: 0.5s;
+  animation-name: btnAnimation;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+.masthead-btns-lightMode{
+  color:black;
+  padding:15px;
+  margin:10px;
+  margin-left:10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.masthead-btns-lightMode:hover{
+  animation-delay: 0ms;
+  animation-duration: 0.5s;
+  animation-name: btnAnimationLight;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+@keyframes btnAnimation {
   from {
-    transform: rotate(0deg);
+      background-color: black;
+      color:white;
+    }
+  to{
+    background-color: white;
+    color:black;
+    }
+}
+@keyframes btnAnimationLight {
+  from {
+    background-color: white;
+    color:black;
   }
   to {
-    transform: rotate(360deg);
+    background-color: black;
+    color:white;
+  }
+}
+.masthead-icons{
+  margin-left: 280px;
+
+  position: absolute;
+  animation-name: mastheadIcon;
+  animation-duration: 1s;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+ @keyframes mastheadIcon {
+    from{
+      margin-left:280px;
+    }
+    to{
+      margin-left:320px;
+    }
+ }
+ @keyframes react-fadeToLight{
+  from{
+    background-color:"black";
+  }
+  to{
+    background-color: "white";
+  }
+}
+@keyframes react-fadeToDark{
+  from{
+    background-color: "white";
+  }
+  to{
+    background-color: "black";
+  }
+}
+
+
+/*Mobile Design specification*/
+@media (max-width: 640px) { 
+  .nav-container{
+    width:100%;
+    margin: 0px 0px;
+  }
+  .nav-container ul{
+    display: none;
+  }
+  .home-icon{
+    margin-left:10px;
+    margin-top:30px;
+  }
+  .nav-toggle-theme{
+    margin-top:60px;
+    margin-left:210px;
+  }
+  .nav-items-container{
+    background-color: grey;
+    width:100%;
+    height: 100%;
+    margin: 0px 20px 0px 0px;
+    margin-top:20px;
+    border-radius: 15px;
+    position: absolute;
+    z-index: 1;
+  }
+  .nav-items-container ul{
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-items-container li{
+    margin: 0px 100px;
+    padding:50px 0px;
+  }
+  .nav-items-container hr{
+    width:75%;
+  }
+  .nav-items-container img{
+    margin:0px;
+    margin-left: 300px;
+    padding-top:20px;
+  }
+  .masthead-container{
+    margin:0px 32px;
+    margin-top:50px;
+
+  }
+  .lower-masthead{
+    margin-top:40px;
+    margin-right:50px;
   }
 }
