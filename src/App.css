@@ -1,15 +1,21 @@
 
 .app-container{
   display: block;
+  position: absolute;
   width:100%;
   height:100vh;
   margin:0px;
   padding:0px;
+  z-index:999
 }
 .animation-container{
+  position:absolute;
+  background-color: rgba(41, 39, 39, 0);
+  top:0;
+  left:0;
+  width: 100%;
   height: 100vh;
-  background-color: inherit;
-  transition:background-color 0.5s ease
+  z-index: -1;
 }
 .nav-container{
   display: flex;
@@ -55,7 +61,7 @@
 }
 .lower-masthead-anim{
   opacity: 0;
-  margin-top:100px;
+  margin-top:80px;
   animation-delay: 8s;
   animation-duration: 10s;
   animation-name: fadeIn;
@@ -63,7 +69,7 @@
   animation-fill-mode: forwards;
 }
 .lower-masthead{
-  margin-top:100px;
+  margin-top:80px;
 }
 @keyframes fadeIn {
   from {opacity: 0;}
@@ -172,7 +178,10 @@
   background-color: inherit;
   transition: background-color 0.5s ease
 }
-
+.footer :hover{
+  color:white;
+  cursor: pointer;
+}
 
 /*Mobile Design specification*/
 @media (max-width: 640px) { 
@@ -226,11 +235,4 @@
     margin-top:40px;
     margin-right:50px;
   }
-}
-/*Animations CSS*/
-.stars-container{
-  display: none;
-  position: absolute;
-  width:100%;
-  height: 10px;
 }

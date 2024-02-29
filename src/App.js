@@ -5,14 +5,13 @@ import Masthead from "./components/Masthead"
 import About from "./components/About"
 import Projects from "./components/Projects"
 import Contact from "./components/Contact"
+import Footer from "./components/Footer"
 import Animation from "./components/Three"
 import {
   BrowserRouter,
   Routes,
   Route
 } from "react-router-dom";
-
-
 function App(){
 
   //determining if the user is using mobile or web
@@ -26,20 +25,18 @@ function App(){
   function toggleMode(){
     setDarkMode(prevState => !prevState)
   }
+
   /*Saving theme preference to localStorage*/
   React.useEffect(() =>{
     localStorage.setItem("darkMode", JSON.stringify(darkMode))
   },[darkMode])
 
-
-
   return(
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
       <div className="app-container" style={{
-          backgroundColor: darkMode ? "black" : "white",
-          transition: 'background-color 0.5s ease'
-
-         }}
+            backgroundColor: darkMode ? "black" : "white",
+            transition: 'background-color 0.5s ease',
+          }}
         ><Nav
           isMobile={isMobile}
           darkMode={darkMode}
@@ -53,18 +50,19 @@ function App(){
               />
               } 
             />
-            <Route path='/home' element={
-              <div>
+            <Route path="/home" element={
+              <>
                 <Masthead
                   darkMode={darkMode}
                   typed={false}
                 />
-                <Animation/>
-              </div>
-              
+                <Animation
+                  animationId={"sphereZoom"}
+                />
+              </>
               } 
             />
-            <Route path='/about' element={
+            <Route path="/about" element={
               <About
                 darkMode={darkMode}
               />
@@ -82,10 +80,11 @@ function App(){
             <Route path='/three' element={
               <Animation
                 darkMode={darkMode}
-                animationId={"example"}
+                animationId={"sphereZoom"}
               />
             }/>
           </Routes>
+          <Footer/>
       </div>
     </BrowserRouter>
   )
