@@ -34,7 +34,7 @@ function App(){
 
 
   return(
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div className="app-container" style={{
           backgroundColor: darkMode ? "black" : "white",
           transition: 'background-color 0.5s ease'
