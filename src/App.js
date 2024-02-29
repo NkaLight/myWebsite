@@ -11,7 +11,6 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import Three from "./components/Three"
 
 
 function App(){
