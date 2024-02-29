@@ -1,11 +1,11 @@
 
 
 [build]
-command = "npm run build"
-publish="/build'
-base = "/"
+command = npm run build
+publish= build
+base = /
 
 [[redirects]]
-from = "/*"
-to = "/index.hmtl"
+from = /*
+to = /index.hmtl
 status = 200
