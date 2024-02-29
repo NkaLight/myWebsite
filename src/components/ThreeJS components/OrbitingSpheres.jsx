@@ -9,7 +9,7 @@ const OrbitingSpheres = (props) => {
   const [spheres, setSpheres] = useState(
     Array.from({ length: props.count }, () => ({
       position: [Math.random() * 20 - 10, Math.random() * 20 - 10, Math.random() * 20 - 10],
-      velocity: [(Math.random() - 0.5) * 0.01, (Math.random() - 0.5) * 0.01, (Math.random() - 0.5) * 0.0]
+      velocity: [(Math.random() - 0.5) * 0.005, (Math.random() - 0.5) * 0.005, (Math.random() - 0.5) * 0.0]
     }))
   );
 
