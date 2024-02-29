@@ -5,12 +5,13 @@ import Masthead from "./components/Masthead"
 import About from "./components/About"
 import Projects from "./components/Projects"
 import Contact from "./components/Contact"
-import MyThree from "./components/Three"
+import Animation from "./components/Three"
 import {
   BrowserRouter,
   Routes,
   Route
 } from "react-router-dom";
+import Three from "./components/Three"
 
 
 function App(){
@@ -26,7 +27,7 @@ function App(){
   function toggleMode(){
     setDarkMode(prevState => !prevState)
   }
-  /*Saving styling preferences to localStorage*/
+  /*Saving theme preference to localStorage*/
   React.useEffect(() =>{
     localStorage.setItem("darkMode", JSON.stringify(darkMode))
   },[darkMode])
@@ -54,10 +55,14 @@ function App(){
               } 
             />
             <Route path="/home" element={
-              <Masthead
-                darkMode={darkMode}
-                typed={false}
-              />
+              <div>
+                <Masthead
+                  darkMode={darkMode}
+                  typed={false}
+                />
+                <Animation/>
+              </div>
+              
               } 
             />
             <Route path="/about" element={
@@ -76,11 +81,12 @@ function App(){
               />
             }/>
             <Route path="/three" element={
-              <MyThree
+              <Animation
+                darkMode={darkMode}
+                animationId={"example"}
               />
             }/>
           </Routes>
-
       </div>
     </BrowserRouter>
   )
