@@ -1,6 +1,6 @@
 import { Canvas}  from "@react-three/fiber"
 import Sphere from "./ThreeJS components/SphereZoom"
-import Glsl from "./ThreeJS components/Glsl"
+import OrbitingSpheres from "./ThreeJS components/OrbitingSpheres"
 import { OrbitControls } from "@react-three/drei"
 
 
@@ -13,6 +13,8 @@ const Three = (props)=>{
           <Animation
             animationId={props.animationId}
             darkMode={props.darkMode}
+            size={props.size}
+            count={props.count}
           />
           <OrbitControls enableZoom={false} enableRotate={true}/>
       </Canvas>
@@ -27,11 +29,15 @@ const Animation = (props)=>{
     return(
     <Sphere
       darkMode={props.darkMode}
+      size={props.size}
     />
     )
-  }else if(props.animationId === "example"){
+  }else if(props.animationId === "orbitingSpheres"){
     return(
-      <Glsl
+      <OrbitingSpheres
+        darkMode={props.darkMode}
+        size={props.size}
+        count={props.count}
       />
     )
   }

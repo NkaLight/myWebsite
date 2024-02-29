@@ -9,13 +9,13 @@ const Sphere = (props)=>{
 
 
     useFrame((state, delta)=>{
-        ref.current.rotation.y += delta / 10
-        setColor(prevState => prevState + 0.04)
+        ref.current.rotation.y += delta / 4
+        setColor(prevState => prevState + 0.035)
     })
     
     return(
         <mesh position={[0, 0, 0]}  ref={ref}>
-              <sphereGeometry args={[color < 5 ? color : 5, 32, 32, 6.2]}/>
+              <sphereGeometry args={[color < props.size ? color : props.size, 32, 32, 6.2]}/>
               <meshBasicMaterial color={props.darkMode ? `rgba(40, 40, 40)` : `rgba(200, 200, 200)`} wireframe/>
         </mesh>
     )

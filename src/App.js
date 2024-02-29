@@ -44,10 +44,18 @@ function App(){
          />
           <Routes>
             <Route path="/" element={
-              <Masthead
-                darkMode={darkMode}
-                typed={true}
-              />
+              <>
+                <Masthead
+                  darkMode={darkMode}
+                  typed={true}
+                />
+                <Animation
+                  darkMode={darkMode}
+                  animationId={"orbitingSpheres"}
+                  size={2}
+                  count={50}
+                />
+              </>
               } 
             />
             <Route path="/home" element={
@@ -57,8 +65,10 @@ function App(){
                   typed={false}
                 />
                 <Animation
-                  animationId={"sphereZoom"}
+                  animationId={"orbitingSpheres"}
                   darkMode={darkMode}
+                  size={2}
+                  count={50}
                 />
               </>
               } 
@@ -69,8 +79,10 @@ function App(){
                   darkMode={darkMode}
                 />
                 <Animation
-                  animationId={"sphereZoom"}
+                  animationId={"orbitingSpheres"}
                   darkMode={darkMode}
+                  count={70}
+                  size={2}
                 />
               </>
             }/>
@@ -80,8 +92,9 @@ function App(){
                   darkMode={darkMode}
                 />
                 <Animation
-                  animationId={"sphereZoom"}
-                  darkMode={darkMode}
+                    animationId={"sphereZoom"}
+                    darkMode={darkMode}
+                    size={5}
                 />
               </>
             }/>
@@ -93,13 +106,16 @@ function App(){
                 <Animation
                   animationId={"sphereZoom"}
                   darkMode={darkMode}
+                  size={3}
                 />
               </>
             }/>
             <Route path='/three' element={
               <Animation
                 darkMode={darkMode}
-                animationId={"sphereZoom"}
+                animationId={"orbitingSpheres"}
+                size={2}
+                count={50}
               />
             }/>
           </Routes>
