@@ -53,7 +53,7 @@ function App(){
               />
               } 
             />
-            <Route path="/home" element={
+            <Route path='/home' element={
               <div>
                 <Masthead
                   darkMode={darkMode}
@@ -64,22 +64,22 @@ function App(){
               
               } 
             />
-            <Route path="/about" element={
+            <Route path='/about' element={
               <About
                 darkMode={darkMode}
               />
             }/>
-            <Route path="/projects" element={
+            <Route path='/projects' element={
               <Projects
                 darkMode={darkMode}
               />
             }/>
-            <Route path="/contact" element={
+            <Route path='/contact' element={
               <Contact
                 darkMode={darkMode}
               />
             }/>
-            <Route path="/three" element={
+            <Route path='/three' element={
               <Animation
                 darkMode={darkMode}
                 animationId={"example"}
