@@ -58,24 +58,43 @@ function App(){
                 />
                 <Animation
                   animationId={"sphereZoom"}
+                  darkMode={darkMode}
                 />
               </>
               } 
             />
             <Route path="/about" element={
-              <About
-                darkMode={darkMode}
-              />
+              <>
+                <About
+                  darkMode={darkMode}
+                />
+                <Animation
+                  animationId={"sphereZoom"}
+                  darkMode={darkMode}
+                />
+              </>
             }/>
             <Route path='/projects' element={
-              <Projects
-                darkMode={darkMode}
-              />
+              <>
+                <Projects
+                  darkMode={darkMode}
+                />
+                <Animation
+                  animationId={"sphereZoom"}
+                  darkMode={darkMode}
+                />
+              </>
             }/>
             <Route path='/contact' element={
-              <Contact
-                darkMode={darkMode}
-              />
+              <>
+                <Contact
+                  darkMode={darkMode}
+                />
+                <Animation
+                  animationId={"sphereZoom"}
+                  darkMode={darkMode}
+                />
+              </>
             }/>
             <Route path='/three' element={
               <Animation
@@ -84,7 +103,9 @@ function App(){
               />
             }/>
           </Routes>
-          <Footer/>
+          <div>
+            <Footer/>
+          </div>
       </div>
     </BrowserRouter>
   )

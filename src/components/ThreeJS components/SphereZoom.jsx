@@ -16,7 +16,7 @@ const Sphere = (props)=>{
     return(
         <mesh position={[0, 0, 0]}  ref={ref}>
               <sphereGeometry args={[color < 5 ? color : 5, 32, 32, 6.2]}/>
-              <meshBasicMaterial color={props.darkMode ? `rgba(100, 100, 100)` : `rgba(110, 110, 110)`} wireframe/>
+              <meshBasicMaterial color={props.darkMode ? `rgba(40, 40, 40)` : `rgba(200, 200, 200)`} wireframe/>
         </mesh>
     )
 }
