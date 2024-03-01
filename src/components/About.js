@@ -15,7 +15,7 @@ function About(props){
             <br/>
             <br/>
             <br/>
-            <div className="about-text">
+            <div className={props.darkMode ? "about-text-darkMode" : "about-text-lightMode"}>
                 <Typewriter
                     onInit={(typewriter) => {
                     typewriter.pauseFor(1000)

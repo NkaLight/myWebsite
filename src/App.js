@@ -36,6 +36,7 @@ function App(){
       <div className="app-container" style={{
             backgroundColor: darkMode ? "black" : "white",
             transition: 'background-color 0.5s ease',
+            minHeight: "100vh"
           }}
         ><Nav
           isMobile={isMobile}
@@ -119,9 +120,7 @@ function App(){
               />
             }/>
           </Routes>
-          <div>
-            <Footer/>
-          </div>
+          <Footer/>
       </div>
     </BrowserRouter>
   )

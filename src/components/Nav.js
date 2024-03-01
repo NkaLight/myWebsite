@@ -1,5 +1,6 @@
 import React from "react";
 import Cross from "../images/Vector(1).png" 
+import whiteCross from "../images/x-mark-16.png"
 import HomeIcon from "../images/Saly-11.svg"
 import toggleLight from "../images/SwitchLight.png"
 import toggleDark from "../images/toggleDark.png"
@@ -31,15 +32,32 @@ export default function Nav(props){
             </ul>
             <img onClick={props.handleClick} src={props.darkMode ? toggleLight : toggleDark} alt="" title={props.darkMode ? "light mode" : "dark mode"} className="nav-toggle-theme"/>
             {isNavOpen && 
-                <div className="nav-items-container">
-                    <img src={Cross} alt="" onClick={toggleNav} />
-                    <ul>
-                        <li><a className="nav-items" href="/about" onClick={toggleNav}>About</a> </li>
+                <div className={props.darkMode ? "nav-items-container-darkMode" : "nav-items-container-lightMode"} >
+                    <img src={props.darkMode ? whiteCross :Cross} alt="" className= "nav-icon" onClick={toggleNav} />
+                    <div className="nav-links-container">
+                        <a className={props.darkMode ? "nav-items-darkMode" : "nav-items-lightMode"}  href="/home" onClick={toggleNav}>Home</a>
                         <hr/>
-                        <li><a className="nav-items" href="/projects" onClick={toggleNav}>Projects</a> </li>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <a className={props.darkMode ? "nav-items-darkMode" : "nav-items-lightMode"}   href="/about" onClick={toggleNav}>About</a>
                         <hr/>
-                        <li><a className="nav-items" href="/contact" onClick={toggleNav}>Contact</a> </li>
-                    </ul>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <a className={props.darkMode ? "nav-items-darkMode" : "nav-items-lightMode"}   href="/projects" onClick={toggleNav}>Projects</a>
+                        <hr/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <a className={props.darkMode ? "nav-items-darkMode" : "nav-items-lightMode"}   href="/contact" onClick={toggleNav}>Contact</a>
+                    </div>
                 </div>
             }
         </div>
