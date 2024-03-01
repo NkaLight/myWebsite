@@ -172,6 +172,8 @@
 .footer{
   margin-top: 30px;
 }
+
+/*Buttons animation logic here */
 @keyframes btnAnimation {
   from {
       background-color: black;
@@ -194,7 +196,6 @@
 }
 .masthead-icons{
   margin-left: 280px;
-
   position: absolute;
   animation-name: mastheadIcon;
   animation-duration: 1s;
@@ -281,12 +282,24 @@
     padding-top:20px;
   }
   .masthead-container{
-    margin:0px 32px;
-    margin-top:50px;
+    margin:0px 35px;
+    margin-top:100px;
 
   }
   .lower-masthead{
     margin-top:40px;
     margin-right:50px;
+  }
+  .masthead-btn-container{
+    margin-right:50px;
+  }
+  .projects-container{
+    margin: 0px 40px;
+  }
+  .projects-btns-darkMode{
+    padding:20px;
+  }
+  .projects-btns-lightMode{
+    padding: 20px;
   }
 }

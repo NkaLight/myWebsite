@@ -9,9 +9,9 @@ export default function Contact(props){
             <br/>
             <p>You can contact me through:</p>
             <div className="project-btns-container">
+                <a href="tel:+64223062870" t target="_blank" rel="noreferrer"><div className={props.darkMode ? "projects-btns-darkMode" : "projects-btns-lightMode"}>Phone call</div></a><br/>
+                <a href="mailto:nkanyisoowethu@gamil.com" t target="_blank" rel="noreferrer"><div className={props.darkMode ? "projects-btns-darkMode" : "projects-btns-lightMode"}>Email</div></a><br/>
                 <a href="https://linkedin.com/in/nkanyiso-ndlovu-46a30821b" target="_blank" rel="noreferrer"><div className={props.darkMode ? "projects-btns-darkMode" : "projects-btns-lightMode"}>LinkedIn</div></a>
-                <a href="mailto:nkanyisoowethu@gamil.com" t target="_blank" rel="noreferrer"><div className={props.darkMode ? "projects-btns-darkMode" : "projects-btns-lightMode"}>Email</div></a> 
-                <a href="tel:+64223062870" t target="_blank" rel="noreferrer"><div className={props.darkMode ? "projects-btns-darkMode" : "projects-btns-lightMode"}>Call</div></a>  
             </div>
         </div>
     )
