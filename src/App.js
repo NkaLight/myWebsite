@@ -106,7 +106,7 @@ function App(){
                 <Animation
                   animationId={"sphereZoom"}
                   darkMode={darkMode}
-                  size={3}
+                  size={3.6}
                 />
               </>
             }/>
