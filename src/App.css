@@ -34,8 +34,7 @@
   text-decoration: none;
 }
 .nav-container a:hover{
-  text-decoration: underline;
-  font-weight: 600;
+  font-weight: bold;
 }
 .nav-container h3{
   cursor: pointer;
@@ -306,7 +305,6 @@
     padding:40px;
     text-decoration: none;
   }
- 
   .nav-icon{
     width: 15px;
     position: relative;
