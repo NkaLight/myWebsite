@@ -4,7 +4,7 @@ import whiteCross from "../images/x-mark-16.png"
 import HomeIcon from "../images/Saly-11.svg"
 import toggleLight from "../images/SwitchLight.png"
 import toggleDark from "../images/toggleDark.png"
-
+import { Link } from "react-router-dom"
 
 export default function Nav(props){
 
@@ -23,12 +23,12 @@ export default function Nav(props){
     
     return(
         <div className="nav-container" style={isNavOpen ? {display: "flex", justifyContent:"center"} : {}}>
-            <img onClick={toggleNav} style={isNavOpen ? {display: "none"} : {} } alt="" src={HomeIcon} className="home-icon"/>
+            <Link to={"/home"}><img  style={isNavOpen ? {display: "none"} : {} } alt="" src={HomeIcon} className="home-icon"/></Link>
             
             <ul>
-                <li><a className="nav-items" href="/projects" style={props.darkMode ? {color: "white"} : {color:"black"}}>Projects</a></li>
-                <li><a className="nav-items" href="/about" style={props.darkMode ? {color: "white"} : {color:"black"}}>About</a> </li>
-                <li><a className="nav-items" href="/contact" style={props.darkMode ? {color: "white"} : {color:"black"}}>Contact</a> </li>
+                <li><Link className="nav-items" to="/projects" style={props.darkMode ? {color: "white"} : {color:"black"}}>Projects</Link></li>
+                <li><Link className="nav-items" to="/about" style={props.darkMode ? {color: "white"} : {color:"black"}}>About</Link> </li>
+                <li><Link className="nav-items" to="/contact" style={props.darkMode ? {color: "white"} : {color:"black"}}>Contact</Link> </li>
             </ul>
             <img onClick={props.handleClick} src={props.darkMode ? toggleLight : toggleDark} alt="" title={props.darkMode ? "light mode" : "dark mode"} className="nav-toggle-theme"/>
             {isNavOpen && 
