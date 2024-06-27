@@ -12,9 +12,11 @@ function About(props){
     return(
         <div className="projects-container" style={props.darkMode ? {color:"white"} : {color:"black"}}>
             <h2>More about me?</h2>
+            {!props.isMobile && 
+            <br/> &&
+            <br/> &&
             <br/>
-            <br/>
-            <br/>
+            }
             <div className={props.darkMode ? "about-text-darkMode" : "about-text-lightMode"}>
                 <div>
                     <p>Well I am a software enthusiast who also loves going out to themed parties. I am a huge lover of <strong>skateboarding too!</strong><br/>I initially fell in love with the

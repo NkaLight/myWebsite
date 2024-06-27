@@ -4,9 +4,11 @@ export default function Projects(props){
     return(
         <div className="projects-container" style={props.darkMode ? {color:"white"} : {color:"black"}}>
             <h1>My projects</h1>
+            {!props.isMobile && 
+            <br/> &&
+            <br/> &&
             <br/>
-            <br/>
-            <br/>
+            }
             <p>This current website is the one and only project I have managed to finish so far. I found a way to implement Three.js in React.js to finish this project.</p>
             <p>Please find the source code in github.</p>
             <div className="project-btns-container">

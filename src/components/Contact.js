@@ -4,9 +4,11 @@ export default function Contact(props){
     return(
         <div className="projects-container" style={props.darkMode ? {color:"white"} : {color:"black"}}>
             <h1>Contacts</h1>
+            {!props.isMobile && 
+            <br/> &&
+            <br/> &&
             <br/>
-            <br/>
-            <br/>
+            }
             <p>You can contact me through:</p>
             <div className="project-btns-container">
                 <a href="tel:+64223062870" t target="_blank" rel="noreferrer"><div className={props.darkMode ? "projects-btns-darkMode" : "projects-btns-lightMode"}>Phone call</div></a><br/>
