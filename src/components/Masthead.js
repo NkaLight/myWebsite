@@ -2,6 +2,7 @@ import React from "react";
 import Typewriter from 'typewriter-effect';
 import whiteArrow from "../images/icon.png";
 import blackArrow from "../images/Fill.png";
+import { Link } from "react-router-dom";
 
 export default function Masthead(props){
     const welcomeText = 
@@ -27,8 +28,8 @@ export default function Masthead(props){
             <div className={props.typed ? "lower-masthead-anim" : "lower-masthead"}>
                 <br/>
                 <div className="masthead-btn-container">
-                    <a href="/about"><div className={props.darkMode ? "masthead-btns-darkMode" : "masthead-btns-lightMode"}>More about me</div></a>
-                    <a href="/projects"><div className={props.darkMode ? "masthead-btns-darkMode" : "masthead-btns-lightMode"}>Projects</div></a>
+                    <Link to="/about"><div className={props.darkMode ? "masthead-btns-darkMode" : "masthead-btns-lightMode"}>More about me</div></Link>
+                    <Link to="/projects"><div className={props.darkMode ? "masthead-btns-darkMode" : "masthead-btns-lightMode"}>Projects</div></Link>
                     <img src={props.darkMode ? whiteArrow : blackArrow } alt="" className="masthead-icons" style={props.darkMode ? {width: "40px ", height:"30px", marginTop:"23px"} : {width:"30px", height:"20px", marginTop:"28px"}}/>
                 </div>
             </div>

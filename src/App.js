@@ -49,6 +49,7 @@ function App(){
                 <Masthead
                   darkMode={darkMode}
                   typed={isMobile? false: true}
+                  isMobile={isMobile}
                 />
                 <Animation
                   darkMode={darkMode}
@@ -64,6 +65,7 @@ function App(){
                 <Masthead
                   darkMode={darkMode}
                   typed={false}
+                  isMobile={isMobile}
                 />
                 <Animation
                   animationId={"orbitingSpheres"}
@@ -79,6 +81,7 @@ function App(){
                 <About
                   darkMode={darkMode}
                   typed={isMobile ? false : true}
+                  isMobile={isMobile}
                 />
                 <Animation
                   animationId={"orbitingSpheres"}
@@ -92,6 +95,7 @@ function App(){
               <>
                 <Projects
                   darkMode={darkMode}
+                  isMobile={isMobile}
                 />
                 <Animation
                     animationId={"sphereZoom"}
@@ -104,6 +108,7 @@ function App(){
               <>
                 <Contact
                   darkMode={darkMode}
+                  isMobile={isMobile}
                 />
                 <Animation
                   animationId={"sphereZoom"}
