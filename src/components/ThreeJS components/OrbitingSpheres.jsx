@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 
 const OrbitingSpheres = (props) => {
+
   // The array contains refs I will use in the array of spheres
   const refs = useRef([]);
 
@@ -30,7 +31,7 @@ const OrbitingSpheres = (props) => {
       {spheres.map((sphere, index) => (
         <mesh key={index} position={sphere.position} ref={ref => (refs.current[index] = ref)}>
           <sphereGeometry args={[props.size, 32, 32]} />
-          <meshBasicMaterial color={props.darkMode ? `rgba(40, 40, 40)` : `rgba(200, 200, 200)`} wireframe />
+          <meshBasicMaterial color={props.darkMode ? `rgba(40, 40, 40)` : `rgba(230, 230, 230)`} wireframe />
         </mesh>
       ))}
     </>

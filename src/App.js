@@ -36,7 +36,7 @@ function App(){
       <div className="app-container" style={{
             backgroundColor: darkMode ? "black" : "white",
             transition: 'background-color 0.5s ease',
-            minHeight: "100vh"
+            height: "100%"
           }}
         ><Nav
           isMobile={isMobile}
@@ -48,7 +48,7 @@ function App(){
               <>
                 <Masthead
                   darkMode={darkMode}
-                  typed={true}
+                  typed={isMobile? false: true}
                 />
                 <Animation
                   darkMode={darkMode}
@@ -78,6 +78,7 @@ function App(){
               <>
                 <About
                   darkMode={darkMode}
+                  typed={isMobile ? false : true}
                 />
                 <Animation
                   animationId={"orbitingSpheres"}

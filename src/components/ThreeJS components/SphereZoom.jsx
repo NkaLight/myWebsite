@@ -14,10 +14,12 @@ const Sphere = (props)=>{
     })
     
     return(
-        <mesh position={[0, 0, 0]}  ref={ref}>
-              <sphereGeometry args={[color < props.size ? color : props.size, 32, 32, 6.2]}/>
-              <meshBasicMaterial color={props.darkMode ? `rgba(40, 40, 40)` : `rgba(200, 200, 200)`} wireframe/>
-        </mesh>
+        <>
+            <mesh position={[0, 0, 0]}  ref={ref}>
+                <sphereGeometry args={[color < props.size ? color : props.size, 32, 32, 6.2]}/>
+                <meshBasicMaterial color={props.darkMode ? `rgba(40, 40, 40)` : `rgba(200, 200, 200)`} wireframe/>
+            </mesh>
+        </>
     )
 }
 export default Sphere

@@ -2,12 +2,22 @@ import { Canvas}  from "@react-three/fiber"
 import Sphere from "./ThreeJS components/SphereZoom"
 import OrbitingSpheres from "./ThreeJS components/OrbitingSpheres"
 import { OrbitControls } from "@react-three/drei"
+import { useRef, useEffect } from "react"
 
 
 const Three = (props)=>{
-  //const controlRef = useRef()
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    containerRef.current.classList.add('active');
+    setTimeout(() => {
+      //containerRef.current.classList.remove('active');
+    }, 300);
+
+    // You can access the new animationId from props.animationId
+  }, []);
   return(
-    <div className="animation-container">
+    <div ref={containerRef} className="animation-container">
       <Canvas shadows={true}>
         <ambientLight position={[10, 10, 10]}/>
           <Animation
