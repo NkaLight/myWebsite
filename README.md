@@ -26,7 +26,7 @@ This personal website serves as a platform to showcase my work, share my thought
 
 ## Installation
 Before you run the project locally, ensure you have:
--  installed the npm package manager([about npm](https://en.wikipedia.org/wiki/Npm)).
+-  installed the npm package manager([see NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)).
 
 To run this project locally follow these steps.
 1. Clone the repository:
@@ -36,7 +36,7 @@ To run this project locally follow these steps.
 
 2. Navigate to the project directory:
     ```bash
-    cd your-repo-name
+    cd myWebsite
     ```
 
 3. Install dependencies:
