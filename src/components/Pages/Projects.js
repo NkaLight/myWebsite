@@ -13,7 +13,10 @@ export default function Projects(props){
             <p>Please find the source code in github.</p>
             <div className="project-btns-container">
                 <a href="https://github.com/NkaLight/myWebsite" target="_blank" rel="noreferrer"><div className={props.darkMode ? "projects-btns-darkMode" : "projects-btns-lightMode"}>Github</div></a>
-                {/* <a href="https://linkedin.com/in/nkanyiso-ndlovu-46a30821b" target="_blank" rel="noreferrer"><div className={props.darkMode ? "projects-btns-darkMode" : "projects-btns-lightMode"}>LinkedIn</div></a>  */}
+            </div>
+            <br/>
+            <div className="project-btns-container">
+                <a href="https://github.com/NkaLight/myWebsite/blob/main/README.md" target="_blank" rel="noreferrer"><div className={props.darkMode ? "projects-btns-darkMode" : "projects-btns-lightMode"}>Documentation</div></a>
             </div>
         </div>
     )
