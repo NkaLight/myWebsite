@@ -1,10 +1,7 @@
 import "./App.css"
+import { Suspense, lazy } from "react"
 import React from "react"
 import Nav from "./components/Nav"
-import Masthead from "./components/Masthead"
-import About from "./components/Pages/About"
-import Projects from "./components/Pages/Projects"
-import Contact from "./components/Pages/Contact"
 import Footer from "./components/Footer"
 import Animation from "./components/Three"
 import {
@@ -12,6 +9,14 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+
+//Lazy loading all components
+const About = lazy(()=> import("./components/Pages/About"))
+const Projects = lazy(()=> import("./components/Pages/Projects"))
+const Contact = lazy(()=> import("./components/Pages/Contact"))
+const Masthead = lazy(()=> import("./components/Masthead"))
+
+
 function App(){
 
   //determining if the user is using mobile or web
@@ -22,8 +27,6 @@ function App(){
     setIsMobile(window.innerWidth <= 480);
   };
   window.addEventListener('resize', handleResize);
-
-  // Cleanup the event listener on component unmount
   return () => {
     window.removeEventListener('resize', handleResize);
   };
@@ -42,101 +45,103 @@ function App(){
 
   return(
     <BrowserRouter>
-      <div className="app-container" style={{
-            backgroundColor: darkMode ? "black" : "white",
-            transition: 'background-color 0.5s ease',
-            height: "100%"
-          }}
-        ><Nav
-          isMobile={isMobile}
-          darkMode={darkMode}
-          handleClick={toggleMode}
-         />
-          <Routes>
-            <Route path="/" element={
-              <>
-                <Masthead
-                  darkMode={darkMode}
-                  typed={isMobile? false: true}
-                  isMobile={isMobile}
-                />
-                <Animation
-                  darkMode={darkMode}
-                  animationId={"orbitingSpheres"}
-                  size={2}
-                  count={50}
-                />
-              </>
-              } 
-            />
-            <Route path="/home" element={
-              <>
-                <Masthead
-                  darkMode={darkMode}
-                  typed={false}
-                  isMobile={isMobile}
-                />
-                <Animation
-                  animationId={"orbitingSpheres"}
-                  darkMode={darkMode}
-                  size={2}
-                  count={50}
-                />
-              </>
-              } 
-            />
-            <Route path="/about" element={
-              <>
-                <About
-                  darkMode={darkMode}
-                  typed={isMobile ? false : true}
-                  isMobile={isMobile}
-                />
-                <Animation
-                  animationId={"orbitingSpheres"}
-                  darkMode={darkMode}
-                  count={70}
-                  size={2}
-                />
-              </>
-            }/>
-            <Route path='/projects' element={
-              <>
-                <Projects
-                  darkMode={darkMode}
-                  isMobile={isMobile}
-                />
-                <Animation
+        <div className="app-container" style={{
+              backgroundColor: darkMode ? "black" : "white",
+              transition: 'background-color 0.5s ease',
+              height: "100%"
+            }}
+          ><Nav
+            isMobile={isMobile}
+            darkMode={darkMode}
+            handleClick={toggleMode}
+          />
+          <Suspense fallback={<Animation darkMode={darkMode} animationId={"orbitingSpheres"} />}>
+            <Routes>
+              <Route path="/" element={
+                <>
+                  <Masthead
+                    darkMode={darkMode}
+                    typed={isMobile? false: true}
+                    isMobile={isMobile}
+                  />
+                  <Animation
+                    darkMode={darkMode}
+                    animationId={"orbitingSpheres"}
+                    size={2}
+                    count={50}
+                  />
+                </>
+                } 
+              />
+              <Route path="/home" element={
+                <>
+                  <Masthead
+                    darkMode={darkMode}
+                    typed={false}
+                    isMobile={isMobile}
+                  />
+                  <Animation
+                    animationId={"orbitingSpheres"}
+                    darkMode={darkMode}
+                    size={2}
+                    count={50}
+                  />
+                </>
+                } 
+              />
+              <Route path="/about" element={
+                <>
+                  <About
+                    darkMode={darkMode}
+                    typed={isMobile ? false : true}
+                    isMobile={isMobile}
+                  />
+                  <Animation
+                    animationId={"orbitingSpheres"}
+                    darkMode={darkMode}
+                    count={70}
+                    size={2}
+                  />
+                </>
+              }/>
+              <Route path='/projects' element={
+                <>
+                  <Projects
+                    darkMode={darkMode}
+                    isMobile={isMobile}
+                  />
+                  <Animation
+                      animationId={"sphereZoom"}
+                      darkMode={darkMode}
+                      size={5}
+                  />
+                </>
+              }/>
+              <Route path='/contact' element={
+                <>
+                  <Contact
+                    darkMode={darkMode}
+                    isMobile={isMobile}
+                  />
+                  <Animation
                     animationId={"sphereZoom"}
                     darkMode={darkMode}
-                    size={5}
-                />
-              </>
-            }/>
-            <Route path='/contact' element={
-              <>
-                <Contact
-                  darkMode={darkMode}
-                  isMobile={isMobile}
-                />
+                    size={3.6}
+                  />
+                </>
+              }/>
+              <Route path='/three' element={
                 <Animation
-                  animationId={"sphereZoom"}
                   darkMode={darkMode}
-                  size={3.6}
+                  animationId={"orbitingSpheres"}
+                  size={2}
+                  count={50}
                 />
-              </>
-            }/>
-            <Route path='/three' element={
-              <Animation
-                darkMode={darkMode}
-                animationId={"orbitingSpheres"}
-                size={2}
-                count={50}
-              />
-            }/>
-          </Routes>
+              }/>
+            </Routes>
+          </Suspense>
           <Footer/>
-      </div>
+        </div>
     </BrowserRouter>
   )
 }
