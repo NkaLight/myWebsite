@@ -17,6 +17,12 @@ This is the repository for my personal website. The website showcases my portfol
 This personal website serves as a platform to showcase my work, share my thoughts through a blog, and provide visitors with information about my background and skills
 
 ## Feautures
+#### 1. Dark mode and light mode support
+- <ins>Visual Adaptability:</ins><br/>
+The <strong>Color Schema</strong> adapts from primarily from having a white background and black text in light mode to primarily black background to white text darkmode, this in turn reduces visual glare.
+<br/><br/>
+- <ins>Implementation:</ins><br/>
+The preferred <strong>dark/light</strong> mode preferences are stored as <strong>state</strong> isDarkMode, which is then <strong>saved</strong> to the users <strong>localStorage</strong>, so it it saved even when the user refreshes the page. This state is used to <strong>conditionally</strong> assign the div elements, className props.This used in CSS file name App.css to render the correct styling specifications according to the design specifications.
 
 ## Technologies used
  - HTML5
@@ -57,29 +63,38 @@ After starting the development server, open your web browser and navigate to e.g
 
 ## Project structure
 Here is a brief overview of the project structure:
-
 ```plaintext
 myWebsite
 ├── public
 │   ├── index.html
 │   └── [other static assets]
 ├── src
-│   ├── ThreeJS components
-│   │   ├── OrbitingSpheres.jsx
-│   │   ├── SphereZoom.jsx
-│   │   └── [other components]
 │   ├── components
-│   │   ├── About.js
-│   │   ├── Contact.js
-│   │   ├── Masthead.js
-│   │   ├── Projects.js
-│   │   └── Nav.js
+|   |   ├── Pages
+|   |   |   ├── About.js
+|   |   |   ├── Contact.js
+|   |   |   └── [other page files]
+|   |   ├── ThreeJS animations
+|   |   |   ├── OrbitingSpheres.jsx
+|   |   |   └── SphereZoom.jsx
+|   |   ├── Footer.js
+|   |   ├── Nav.js
+|   |   └── [other component files]
+|   ├── images
+|   |   ├── Fill.png
+|   |   ├── toggleDark.png
+|   |   └── [other image files]
+|   ├── Roboto
+|   |   ├── License.txt
+|   |   ├── Roboto-Black.ttf
+|   |   └── [other Roboto files]
 │   ├── App.js
 │   ├── index.js
 │   └── [other files]
 ├── package.json
 └── README.md
 ```
+
 ## Contributing
 Contributions in the form of advice, etc are more than welcome, but since this is a personal project of myself I wont be allowing pull requests, and merging them to my main repository with this project.
 
