@@ -15,10 +15,10 @@ import {
 function App(){
 
   //determining if the user is using mobile or web
-  const  [isMobile, setIsMobile] = React.useState(/Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+  const  [isMobile, setIsMobile] = React.useState(window.innerWidth <= 480);
   React.useEffect(()=>
-    ()=> setIsMobile(/Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
-  , [])
+    ()=> setIsMobile(window.innerWidth <= 480)
+  , [isMobile])
 
   //State to track light and darkmode
   const [darkMode, setDarkMode] = React.useState(JSON.parse(localStorage.getItem("darkMode")) || false);

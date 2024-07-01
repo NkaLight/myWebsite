@@ -14,7 +14,6 @@ export default function Projects(props){
             <div className="project-btns-container">
                 <a href="https://github.com/NkaLight/myWebsite" target="_blank" rel="noreferrer"><div className={props.darkMode ? "projects-btns-darkMode" : "projects-btns-lightMode"}>Github</div></a>
             </div>
-            <br/>
             <div className="project-btns-container">
                 <a href="https://github.com/NkaLight/myWebsite/blob/main/README.md" target="_blank" rel="noreferrer"><div className={props.darkMode ? "projects-btns-darkMode" : "projects-btns-lightMode"}>Documentation</div></a>
             </div>
