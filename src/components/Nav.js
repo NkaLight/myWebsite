@@ -19,12 +19,11 @@ export default function Nav(props){
     
     return(
         <div className="nav-container" style={isNavOpen ? {display: "flex", justifyContent:"center"} : {}}>
-            {!props.isMobile ?
-                <Link to={"/home"}><img  style={isNavOpen ? {display: "none"} : {} } alt="" src={HomeIcon} className="home-icon"/></Link> 
+            {props.isMobile ?
+                <Link onClick={toggleNav}><img  style={isNavOpen ? {display: "none"} : {} } alt="Navigation" src={HomeIcon} className="home-icon"/></Link>
                 :
-                <Link onClick={toggleNav}><img  style={isNavOpen ? {display: "none"} : {} } alt="" src={HomeIcon} className="home-icon"/></Link>
+                <Link to={"/home"}><img alt="Home" src={HomeIcon} className="home-icon"/></Link> 
             }
-            
             <ul>
                 <li><Link className="nav-items" to="/projects" style={props.darkMode ? {color: "white"} : {color:"black"}}>Projects</Link></li>
                 <li><Link className="nav-items" to="/about" style={props.darkMode ? {color: "white"} : {color:"black"}}>About</Link> </li>

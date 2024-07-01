@@ -278,8 +278,9 @@
     margin-top:30px;
   }
   .nav-toggle-theme{
+    margin-left:auto;
+    margin-right:40px;
     margin-top:60px;
-    margin-left:45%;
   }
   .nav-items-container-darkMode{
    position: absolute;
