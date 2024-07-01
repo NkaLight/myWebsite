@@ -16,9 +16,18 @@ function App(){
 
   //determining if the user is using mobile or web
   const  [isMobile, setIsMobile] = React.useState(window.innerWidth <= 480);
-  React.useEffect(()=>
-    ()=> setIsMobile(window.innerWidth <= 480)
-  , [isMobile])
+
+  React.useEffect(() => {
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 480);
+  };
+  window.addEventListener('resize', handleResize);
+
+  // Cleanup the event listener on component unmount
+  return () => {
+    window.removeEventListener('resize', handleResize);
+  };
+}, []);
 
   //State to track light and darkmode
   const [darkMode, setDarkMode] = React.useState(JSON.parse(localStorage.getItem("darkMode")) || false);
