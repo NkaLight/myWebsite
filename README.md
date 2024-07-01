@@ -23,15 +23,12 @@ The <strong>Color Schema</strong> adapts from primarily from having a white back
 <br/><br/>
 - <ins>Implementation:</ins><br/>
 The preferred <strong>dark/light</strong> mode preferences are stored as <strong>state</strong> isDarkMode, which is then <strong>saved</strong> to the users <strong>localStorage</strong>, so it it saved even when the user refreshes the page. This state is used to <strong>conditionally</strong> assign the div elements, className props.This used in CSS file name App.css to render the correct styling specifications according to the design specifications.
-<<<<<<< HEAD
 <br/><br/>
 - <ins>Performance:</ins><br/>
 Since I utilize client-side routing where all my componets lazily compile at initial load, along with the fact that at this point images are not impacted by this feature, the performance is not impacted, if so it is so arbitary small that it is not worth mentioning.
  <br/><br/>
 - <ins>User experience:</ins><br/>
 When the user clicks on a button icon, on the top left of the Nav bar, the web-application seamlessely changes from a white and grey color pallete to a more black and grey color pallete.
-=======
->>>>>>> chatBotAssistant
 
 ## Technologies used
  - HTML5
@@ -103,6 +100,7 @@ myWebsite
 ├── package.json
 └── README.md
 ```
+
 
 ## Contributing
 Contributions in the form of advice, etc are more than welcome, but since this is a personal project of myself I wont be allowing pull requests, and merging them to my main repository with this project.
