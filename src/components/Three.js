@@ -1,6 +1,6 @@
 import { Canvas}  from "@react-three/fiber"
-import Sphere from "./ThreeJS components/SphereZoom"
-import OrbitingSpheres from "./ThreeJS components/OrbitingSpheres"
+import Sphere from "./ThreeJS animations/SphereZoom"
+import OrbitingSpheres from "./ThreeJS animations/OrbitingSpheres"
 import { OrbitControls } from "@react-three/drei"
 import { useRef, useEffect } from "react"
 
