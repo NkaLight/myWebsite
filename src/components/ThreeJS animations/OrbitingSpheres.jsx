@@ -31,7 +31,7 @@ const OrbitingSpheres = (props) => {
       {spheres.map((sphere, index) => (
         <mesh key={index} position={sphere.position} ref={ref => (refs.current[index] = ref)}>
           <sphereGeometry args={[props.size, 32, 32]} />
-          <meshBasicMaterial color={props.darkMode ? `rgba(40, 40, 40)` : `rgba(230, 230, 230)`} wireframe />
+          <meshBasicMaterial color={props.darkMode ? `rgba(40, 40, 40)` : `rgba(195, 195, 195)`} wireframe />
         </mesh>
       ))}
     </>
