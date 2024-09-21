@@ -1,6 +1,6 @@
 # My personal portfolio website
 
-This is the repository for my personal website. The website showcases my portfolio, blog, and other relevant information about me. It is built using client-side routing for a seamless user experience.
+This is the repository for my personal website. The website showcases my portfolio template where I will post projects, perhaps blogs and some information about me. This website showcases my understanding of front-end web development particularly using the react library.
 
 # Table of contents:
 - Overview

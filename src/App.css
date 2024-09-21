@@ -1,4 +1,4 @@
-
+/*Layout section*/
 .app-container{
   min-height: 100vh;
   display: flex;
@@ -10,6 +10,12 @@
   padding:0px;
   z-index:999
 }
+.nav-container{
+  display: flex;
+  margin: 0px 50px;
+  padding-top:30px;
+  color:rgb(168, 168, 168);
+}
 .animation-container{
   position:fixed;
   background-color: rgba(41, 39, 39, 0);
@@ -19,13 +25,51 @@
   height: 100%;
   z-index: -1;
 }
-
-.nav-container{
-  display: flex;
-  margin: 0px 50px;
-  padding-top:30px;
-  color:rgb(168, 168, 168);
+.main-container{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin:0px 180px;
 }
+
+/*Main buttons*/
+.main-btns-container{
+  
+}
+.main-btns-container a{
+  text-decoration: none;
+  padding: 10px;
+  margin:30px;
+}
+.main-btns-lightMode{
+  color: black;
+  padding:20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.main-btns-darkmode{
+  color: white;
+  padding:20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.main-btns-lightMode:hover{ /*main-btns-lightmode*/
+  animation-delay: 0ms;
+  animation-duration: 0.5s;
+  animation-name: btnAnimationLight;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+.main-btns-darkmode:hover{
+  animation-delay: 0ms;
+  animation-duration: 0.5s;
+  animation-name: btnAnimation;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
 .nav-container ul{
   display: flex;
   margin-left:auto;
@@ -86,6 +130,7 @@
 }
 .masthead-btn-container a{
   text-decoration: none;
+  width:30px;
 
 }
 .masthead-btns-darkMode{
@@ -127,7 +172,6 @@
   margin:0px 180px;
 }
 .project-btns-container{
-  display: flex;
   justify-content: center;
   flex-direction: column;
 }
@@ -154,6 +198,8 @@
 .projects-btns-lightMode{
   color:black;
   padding:15px;
+  margin:10px;
+  margin-left:10px;
   border-radius: 20px;
   cursor: pointer;
 }
@@ -166,7 +212,7 @@
   animation-timing-function: linear;
 }
 .about-text-lightMode{
-  font-size:large;
+  font-weight: lighter;
   font-family: Roboto-black;
   margin:0px 10px;
 }

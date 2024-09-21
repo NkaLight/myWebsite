@@ -9,10 +9,11 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import Home from "./components/Pages/Home"
 
 //Lazy loading all components
 const About = lazy(()=> import("./components/Pages/About"))
-const Projects = lazy(()=> import("./components/Pages/Projects"))
+const Project = lazy(()=> import("./components/Pages/Project"))
 const Contact = lazy(()=> import("./components/Pages/Contact"))
 const Masthead = lazy(()=> import("./components/Masthead"))
 
@@ -59,7 +60,7 @@ function App(){
             <Routes>
               <Route path="/" element={
                 <>
-                  <Masthead
+                  <Home
                     darkMode={darkMode}
                     typed={isMobile? false: true}
                     isMobile={isMobile}
@@ -106,7 +107,7 @@ function App(){
               }/>
               <Route path='/projects' element={
                 <>
-                  <Projects
+                  <Project
                     darkMode={darkMode}
                     isMobile={isMobile}
                   />

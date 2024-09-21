@@ -9,7 +9,7 @@ export default function Masthead(props){
             `Hello there!<br/> my name is<strong> Nkanyiso Ndlovu</strong>,<br/> I am a software enthusiast and aspiring software engineer.
             `
     return(
-        <div className="masthead-container">
+        <div className="main-container">
             <div className="masthead-typedtext" id="typedText" style={props.darkMode ? {color: "white"} : {color: "black"}}>
             {props.typed ? <Typewriter
                 onInit={(typewriter) => {

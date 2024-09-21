@@ -4,7 +4,7 @@ import React from "react";
 function About(props){
 
     return(
-        <div className="projects-container" style={props.darkMode ? {color:"white"} : {color:"black"}}>
+        <div className="main-container" style={props.darkMode ? {color:"white"} : {color:"black"}}>
             <h2>More about me?</h2>
             {!props.isMobile && 
             <br/> &&

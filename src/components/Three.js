@@ -50,6 +50,12 @@ const Animation = (props)=>{
         count={props.count}
       />
     )
+  }else if(props.animationId === "loading"){
+    return(
+      <div>
+        <h1>LOADING....</h1>
+      </div>
+    )
   }
 }
 
