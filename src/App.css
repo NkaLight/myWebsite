@@ -1,13 +1,15 @@
 /*Layout section*/
 .app-container{
-  display: grid;
+  display: grid ;
   height: 100vh;
   grid-template-rows: 15vh 75vh 10vh; /* Adjusted for footer positioning */
   grid-template-columns: 1fr; /* Single column layout */
   position: relative; /* Needed for absolute positioning of children */
   margin:0px;
   padding:0px;
-  background-color: green;
+  /* opacity: 1; /*For web application navigation transitions*/
+  /*transition: opacity 0.5s ease-in-out; */
+  
 }
 .nav-container{
   grid-row: 1;
@@ -49,10 +51,18 @@
 .main-btns-container{
   
 }
+.main-rows-btns-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main-rows-btns-container a{
+  text-decoration: none;
+}
 .main-btns-container a{
   text-decoration: none;
   padding: 10px;
-  margin:30px;
 }
 .main-btns-lightMode{
   color: black;
@@ -307,7 +317,22 @@
 .footer :hover{
   color:rgb(0, 0, 0);
 }
+/*Transitions*/
+.fade-enter {
+  opacity: 0;
+}
 
+.fade-enter-active {
+  opacity: 1;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+}
 /*Mobile Design specification*/
 @media (max-width: 640px) { 
   .animation-container{

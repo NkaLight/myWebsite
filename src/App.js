@@ -7,8 +7,11 @@ import Animation from "./components/Three"
 import {
   BrowserRouter,
   Routes,
-  Route
+  Route,
+  useLocation,
+  Navigate 
 } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Home from "./components/Pages/Home"
 
 //Lazy loading all components
@@ -44,6 +47,8 @@ function App(){
     localStorage.setItem("darkMode", JSON.stringify(darkMode))
   },[darkMode])
 
+  /*For transitions*/
+  //const location = useLocation();
   return(
     <BrowserRouter>
         <div className="app-container" style={{
@@ -59,7 +64,7 @@ function App(){
             <Routes>
               <Route path="/" element={
                 <>
-                  <Home
+                  <Masthead
                     darkMode={darkMode}
                     typed={isMobile? false: true}
                     isMobile={isMobile}
@@ -138,6 +143,7 @@ function App(){
                   count={50}
                 />
               }/>
+              <Route path="*" element={<Navigate to="/home" replace />} /> 
             </Routes>
           </Suspense>
           <Footer/>
