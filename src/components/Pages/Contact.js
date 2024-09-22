@@ -11,8 +11,8 @@ export default function Contact(props){
             }
             <p>You can contact me through:</p>
             <div className="main-btns-container">
-                <a href="tel:+64223062870" t target="_blank" rel="noreferrer" className={props.darkMode ? "main-btns-darkmode" : "main-btns-lightMode"}>Phone call</a><br/><br/><br/>
-                <a href="mailto:nkanyisoowethu@gamil.com" t target="_blank" rel="noreferrer" className={props.darkMode ? "main-btns-darkmode" : "main-btns-lightMode"}>Email</a><br/><br/><br/>
+                <a href="tel:+64223062870" t target="_blank" rel="noreferrer" className={props.darkMode ? "main-btns-darkmode" : "main-btns-lightMode"}>Phone call</a><br/><br/>
+                <a href="mailto:nkanyisoowethu@gamil.com" t target="_blank" rel="noreferrer" className={props.darkMode ? "main-btns-darkmode" : "main-btns-lightMode"}>Email</a><br/><br/>
                 <a href="https://linkedin.com/in/nkanyiso-ndlovu-46a30821b" target="_blank" rel="noreferrer" className={props.darkMode ? "main-btns-darkmode" : "main-btns-lightMode"}>LinkedIn</a><br/><br/>
             </div>
         </div>

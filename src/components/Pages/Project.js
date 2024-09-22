@@ -11,10 +11,10 @@ export default function Project(props){
             }
             <p>This current website is the one and only project I have managed to finish so far. I found a way to implement Three.js in React.js to finish this project.</p>
             <p>Please find the source code in github.</p>
-            <div className="project-btns-container">
+            <div className="main-btns-container">
                 <a href="https://github.com/NkaLight/myWebsite" target="_blank" rel="noreferrer"><div className={props.darkMode ? "projects-btns-darkMode" : "projects-btns-lightMode"}>Github</div></a>
             </div>
-            <div className="project-btns-container">
+            <div className="main-btns-container">
                 <a href="https://github.com/NkaLight/myWebsite/blob/main/README.md" target="_blank" rel="noreferrer"><div className={props.darkMode ? "projects-btns-darkMode" : "projects-btns-lightMode"}>Documentation</div></a>
             </div>
         </div>

@@ -47,9 +47,7 @@ function App(){
   return(
     <BrowserRouter>
         <div className="app-container" style={{
-              backgroundColor: darkMode ? "black" : "white",
-              transition: 'background-color 0.5s ease',
-              height: "100%"
+              backgroundColor: darkMode ? "black" : "white"
             }}
           ><Nav
             isMobile={isMobile}
