@@ -69,12 +69,16 @@
   padding:15px;
   border-radius: 20px;
   cursor: pointer;
+  text-align: center;
+  width: 90px;
 }
 .main-btns-darkmode{
   color: white;
   padding:15px;
   border-radius: 20px;
   cursor: pointer;
+  text-align: center;
+  width: 90px;
 }
 .main-btns-lightMode:hover{ /*main-btns-lightmode*/
   animation-delay: 0ms;

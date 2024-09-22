@@ -42,6 +42,9 @@ function App(){
   function toggleMode(){
     setDarkMode(prevState => !prevState)
   }
+  //setting html to dakrkMode
+    //setting the html document backgroundColor to correspond to darkMode ?
+    document.getElementsByTagName('html')[0].style.backgroundColor = darkMode ? "black" : "white";
 
   /*Saving theme preference to localStorage*/
   React.useEffect(() =>{
