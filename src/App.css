@@ -2,9 +2,9 @@
 .app-container{
   display: grid ;
   height: 100vh;
-  grid-template-rows: 15vh 75vh 10vh; /* Adjusted for footer positioning */
-  grid-template-columns: 1fr; /* Single column layout */
-  position: relative; /* Needed for absolute positioning of children */
+  grid-template-rows: 15vh 75vh 10vh; 
+  grid-template-columns: 1fr; 
+  position: relative; 
   margin:0px;
   padding:0px;
   /* opacity: 1; /*For web application navigation transitions*/
@@ -69,12 +69,16 @@
   padding:15px;
   border-radius: 20px;
   cursor: pointer;
+  text-align: center;
+  width: 90px;
 }
 .main-btns-darkmode{
   color: white;
   padding:15px;
   border-radius: 20px;
   cursor: pointer;
+  text-align: center;
+  width: 90px;
 }
 .main-btns-lightMode:hover{ /*main-btns-lightmode*/
   animation-delay: 0ms;
@@ -140,13 +144,7 @@
 .lower-masthead{
   margin-top:80px;
 }
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-  100% {
-    opacity: 1;
-  }
-}
+
 .masthead-btn-container{
   display: flex;
   justify-content: center;
@@ -317,13 +315,14 @@
 .footer :hover{
   color:rgb(0, 0, 0);
 }
-/*Transitions*/
+/*FADE IN Transitions*/
 .fade-enter {
   opacity: 0;
 }
 
 .fade-enter-active {
   opacity: 1;
+  transition: opacity 500ms ease-in;
 }
 
 .fade-exit {
@@ -332,7 +331,27 @@
 
 .fade-exit-active {
   opacity: 0;
+  transition: opacity 500ms ease-out;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 /*Mobile Design specification*/
 @media (max-width: 640px) { 
   .animation-container{

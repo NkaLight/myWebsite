@@ -2,6 +2,7 @@ import React from "react";
 import Typewriter from 'typewriter-effect';
 import whiteArrow from "../images/icon.png";
 import blackArrow from "../images/Fill.png";
+import Animation from "./Three"
 import { Link } from "react-router-dom";
 
 export default function Masthead(props){
@@ -34,6 +35,5 @@ export default function Masthead(props){
                 </div>
             </div>
         </div>
-        
     )
 }

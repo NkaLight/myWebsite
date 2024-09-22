@@ -1,16 +1,17 @@
 import "./App.css"
-import { Suspense, lazy } from "react"
+import { Suspense, lazy, useEffect, useState } from "react"
 import React from "react"
 import Nav from "./components/Nav"
 import Footer from "./components/Footer"
-import Animation from "./components/Three"
 import {
   BrowserRouter,
   Routes,
   Route,
   useLocation,
-  Navigate 
+  Navigate, 
+  Router
 } from "react-router-dom";
+import {Switch} from 'react-router'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Home from "./components/Pages/Home"
 import PageNotFound from "./components/Pages/404-Not-found"
@@ -20,6 +21,7 @@ const About = lazy(()=> import("./components/Pages/About"))
 const Project = lazy(()=> import("./components/Pages/Project"))
 const Contact = lazy(()=> import("./components/Pages/Contact"))
 const Masthead = lazy(()=> import("./components/Masthead"))
+const Animation = lazy(() => import("./components/Three"))
 
 
 function App(){
@@ -42,44 +44,53 @@ function App(){
   function toggleMode(){
     setDarkMode(prevState => !prevState)
   }
+  //setting the html document backgroundColor to correspond to darkMode ?
+  document.getElementsByTagName('html')[0].style.backgroundColor = darkMode ? "black" : "white";
 
   /*Saving theme preference to localStorage*/
   React.useEffect(() =>{
     localStorage.setItem("darkMode", JSON.stringify(darkMode))
   },[darkMode])
 
-  /*For transitions*/
-  //const location = useLocation();
+  /*Implementing onload/ offload fade in effect*/
+  const location = useLocation();
+  
+
   return(
-    <BrowserRouter>
-        <div className="app-container" style={{
-              backgroundColor: darkMode ? "black" : "white",
-              transition: 'background-color 0.5s ease'
-            }}
-          ><Nav
-            isMobile={isMobile}
-            darkMode={darkMode}
-            handleClick={toggleMode}
-          />
-          <Suspense fallback={<Animation darkMode={darkMode} animationId={"orbitingSpheres"} />}>
-            <Routes>
-              <Route path="/" element={
-                <>
+      <div className={`app-container`} style={{
+            backgroundColor: darkMode ? "black" : "white",
+            transition: 'background-color 0.5s ease'
+          }}      
+        ><Nav
+          isMobile={isMobile}
+          darkMode={darkMode}
+          handleClick={toggleMode}
+        />
+        <Suspense fallback={<Animation darkMode={darkMode} animationId={"orbitingSpheres"} />}>
+        <TransitionGroup>
+          <CSSTransition
+            key={location.key}
+            classNames="fade"
+            timeout={300}
+          >
+          <Switch location={location}>
+            <Route path="/" element={
+                
                   <Masthead
                     darkMode={darkMode}
                     typed={isMobile? false: true}
                     isMobile={isMobile}
                   />
+                  /*
                   <Animation
                     darkMode={darkMode}
                     animationId={"orbitingSpheres"}
                     size={2}
                     count={50}
-                  />
-                </>
-                } 
-              />
-              <Route path="/home" element={
+                  /> */
+              } 
+            />
+            <Route path="/home" element={
                 <>
                   <Masthead
                     darkMode={darkMode}
@@ -93,63 +104,66 @@ function App(){
                     count={50}
                   />
                 </>
-                } 
-              />
-              <Route path="/about" element={
-                <>
-                  <About
-                    darkMode={darkMode}
-                    typed={isMobile ? false : true}
-                    isMobile={isMobile}
-                  />
-                  <Animation
-                    animationId={"orbitingSpheres"}
-                    darkMode={darkMode}
-                    count={70}
-                    size={2}
-                  />
-                </>
-              }/>
-              <Route path='/projects' element={
-                <>
-                  <Project
-                    darkMode={darkMode}
-                    isMobile={isMobile}
-                  />
-                  <Animation
-                      animationId={"sphereZoom"}
-                      darkMode={darkMode}
-                      size={5}
-                  />
-                </>
-              }/>
-              <Route path='/contact' element={
-                <>
-                  <Contact
-                    darkMode={darkMode}
-                    isMobile={isMobile}
-                  />
-                  <Animation
+              } 
+            />
+            <Route path="/about" element={
+                <About
+                  darkMode={darkMode}
+                  typed={isMobile ? false : true}
+                  isMobile={isMobile}
+                />
+                /*<Animation
+                  animationId={"orbitingSpheres"}
+                  darkMode={darkMode}
+                  count={70}
+                  size={2}
+                />*/
+            }/>
+            <Route path='/projects' element={
+                <Project
+                  darkMode={darkMode}
+                  isMobile={isMobile}
+                />
+                /*<Animation
                     animationId={"sphereZoom"}
                     darkMode={darkMode}
-                    size={3.6}
-                  />
-                </>
-              }/>
-              <Route path='/three' element={
-                <Animation
+                    size={5}
+                />*/
+            }/>
+            <Route path='/contact' element={
+                <Contact
                   darkMode={darkMode}
-                  animationId={"orbitingSpheres"}
-                  size={2}
-                  count={50}
+                  isMobile={isMobile}
                 />
-              }/>
-              <Route path="*" element={<PageNotFound darkMode={darkMode} isMobile={isMobile}/>} /> 
-            </Routes>
-          </Suspense>
-          <Footer/>
-        </div>
-    </BrowserRouter>
+                /*<Animation
+                  animationId={"sphereZoom"}
+                  darkMode={darkMode}
+                  size={3.6}
+                />*/
+            }/>
+            <Route path='/three' element={
+              <Animation
+                darkMode={darkMode}
+                animationId={"orbitingSpheres"}
+                size={2}
+                count={50}
+              />
+            }/>
+            <Route path="*" element={<PageNotFound darkMode={darkMode} isMobile={isMobile}/>} />
+          </Switch>
+          </CSSTransition>
+          </TransitionGroup>
+        </Suspense>
+      <Footer/>
+    </div>
   )
 }
-export default App
+
+function Main(){
+  return(
+    <BrowserRouter>
+      <App/>
+  </BrowserRouter>
+  )
+}
+export default Main;
