@@ -2,7 +2,7 @@
 .app-container{
   display: grid;
   height: 100vh;
-  grid-template-rows: 15vh 80vh 5vh; /* Adjusted for footer positioning */
+  grid-template-rows: 15vh 75vh 10vh; /* Adjusted for footer positioning */
   grid-template-columns: 1fr; /* Single column layout */
   position: relative; /* Needed for absolute positioning of children */
   margin:0px;
@@ -41,7 +41,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding:10px;
+  padding-bottom:20px;
+  z-index: 999;
 }
 
 /*Main buttons*/
