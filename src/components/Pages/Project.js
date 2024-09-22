@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Project(props){
+function Project(props){
     return(
         <div className="main-container" style={props.darkMode ? {color:"white"} : {color:"black"}}>
             <h1>My projects</h1>
@@ -19,3 +19,5 @@ export default function Project(props){
         </div>
     )
 }
+
+export default Project;

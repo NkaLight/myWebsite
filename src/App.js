@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Home from "./components/Pages/Home"
+import PageNotFound from "./components/Pages/404-Not-found"
 
 //Lazy loading all components
 const About = lazy(()=> import("./components/Pages/About"))
@@ -143,7 +144,7 @@ function App(){
                   count={50}
                 />
               }/>
-              <Route path="*" element={<Navigate to="/home" replace />} /> 
+              <Route path="*" element={<PageNotFound darkMode={darkMode} isMobile={isMobile}/>} /> 
             </Routes>
           </Suspense>
           <Footer/>
