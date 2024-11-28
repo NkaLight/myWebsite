@@ -32,6 +32,17 @@ const projects = [
         startDate: "2024-07-15",
         endDate: "2024-09-10",
     },
+    {
+        id: 4,
+        name: "Bug Bounty Hunter course",
+        description: "Using Hack the box platform to learn about cybersecurity",
+        detailedDescription:"More things to explain here.",
+        technologies: ["Linux", "Powershell", "Cmd", "Wireshark", "Burpsuite"],
+        gitHub: "https://academy.hackthebox.com/achievement/1521618/35",
+        skillDescription: "Learn't about various tools, and concepts used to perform various attacks, I understand and I am in the process of having an even deeper understanding of technologies, used in large corporations such as Active directories.",
+        startDate: "2024-07-15",
+        endDate: "2024-09-10",
+    },
 ];
 
 export default projects;
