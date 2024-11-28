@@ -8,7 +8,7 @@ function Project(props){
             <h1>My projects and interests</h1>
             <div className="project-list-container">
                 {projectList.map((p) => {
-                    return <PCards key={p.id} {...p}/>
+                    return <PCards key={p.id} {...props} {...p}/>
                 })}
             </div>
         </div>

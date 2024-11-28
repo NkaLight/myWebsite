@@ -9,6 +9,7 @@ const projects = [
         skillDescription: "Modern Client-side Web development",
         startDate: "2023-05-10",
         endDate: "present",
+        image: "magicpattern-KfFmwa7m5VQ-unsplash.jpg"
     },
     {
         id: 2,
@@ -20,6 +21,7 @@ const projects = [
         skillDescription: "Server-side web-development,Implementing the Middleware and implementing a MySQL database to store my data, to fullfill functional requirements, based on my information gathering with an arbitary client, as part of my INFO202 assignment. The more technical aspects I expanded was unit testing, and the importance of good code coverage.",
         startDate: "2024-03-01",
         endDate: "2024-09-30",
+        image: "growtika-igIZsp_wKbg-unsplash.jpg"
     },
     {
         id: 3,
@@ -31,17 +33,19 @@ const projects = [
         skillDescription: "Learn't about the importance of working in a team, where we would delegate work very early on every week, and work on our specific project tasks for the week. I also learnt about the importance of asking for help and how efficient software development becomes in a collaborative dev team.",
         startDate: "2023-01-15",
         endDate: "2023-6-03",
+        image: "usgs-Jd09hiCUPCs-unsplash.jpg",
     },
     {
         id: 4,
-        name: "Bug Bounty Hunter course",
-        description: "Using Hack the box platform to learn about cybersecurity",
+        name: "Information Security Foundations",
+        description: "Using Hack the box platform currently working towards being a skilled bug bounty hunter",
         detailedDescription:"More things to explain here.",
         technologies: ["Linux", "Powershell", "Cmd", "Wireshark", "Burpsuite", "Bash"],
-        link: "https://academy.hackthebox.com/achievement/1521618/35",
+        link: "https://academy.hackthebox.com/achievement/1521618/path/120",
         skillDescription: "Learn't about various tools, and concepts used to perform various attacks, I understand and I am in the process of having an even deeper understanding of technologies, used in large corporations such as Active directories.",
         startDate: "2024-10-28",
         endDate: "present",
+        image:"hackthebox.png",
     },
 ];
 
