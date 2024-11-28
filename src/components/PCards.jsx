@@ -20,7 +20,7 @@ const PCards = (props)=>{
             <section className={!props.darkMode ? "card-lower-section" : "card-lower-section-darkMode"}>
                 {
                     <a className={props.darkMode ? "main-btns-darkmode" : "main-btns-lightMode"} href={props.link} target="__blank">
-                        {props.name.includes("course") ? "HackTheBox" : "GitHub" }
+                        {(props.id) == 4 ? "HackTheBox" : "GitHub" }
                     </a>
                 }
             </section>
