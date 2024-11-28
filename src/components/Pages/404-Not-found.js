@@ -1,10 +1,8 @@
 import React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 function PageNotFound(props){
-    function prevPage(){
-    }
 
     return(
         <div className="main-container" style={props.darkMode ? {color:"white"} : {color:"black"}}>
