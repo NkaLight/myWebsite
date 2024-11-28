@@ -1,5 +1,4 @@
 import React from "react";
-import Three from "./Three";
 
 const PCards = (props)=>{
     return(//C:\Users\Nka\Documents\Projects\personal-website\myWebsite\src\images\magicpattern-KfFmwa7m5VQ-unsplash.jpg
