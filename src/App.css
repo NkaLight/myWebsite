@@ -19,7 +19,7 @@
   z-index: 999;
 }
 .animation-container{
-  grid-row: 1 / span 2;
+  grid-row: 1 / span 3;
   grid-column: 1;
   position: relative; /* Maintain relative positioning for 3D animations */
 }
@@ -27,7 +27,7 @@
   grid-row: 2;
   grid-column: 1;
   position: absolute; /* Layer above the animation */
-  margin-top:80px;
+  margin-top:30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -337,6 +337,38 @@
 .fade-exit-active {
   opacity: 0;
 }
+
+/**Project List container*/
+.project-list-container {
+  display: flex; /* Arrange cards in a row */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden;
+  gap: 10px; /* Optional: Space between cards */
+  padding: 25px; /* Optional: Inner padding for the container */
+  white-space: nowrap;
+  width: 55%;
+  height: 400px;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.project-list-container::-webkit-scrollbar { /**Ensuring the scrollbar is hidden*/
+  display: none;  /* Safari and Chrome */
+}
+
+/**Project Cards*/
+.card {
+  min-width: 250px; /* Set a minimum width for cards */
+  height: 400px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 /*Mobile Design specification*/
 @media (max-width: 640px) { 
   .animation-container{

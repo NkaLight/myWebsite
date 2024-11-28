@@ -8,11 +8,7 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  useLocation,
-  Navigate 
 } from "react-router-dom";
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import Home from "./components/Pages/Home"
 import PageNotFound from "./components/Pages/404-Not-found"
 
 //Lazy loading all components
@@ -66,7 +62,7 @@ function App(){
           />
           <Suspense fallback={<Animation darkMode={darkMode} animationId={"orbitingSpheres"} />}>
             <Routes>
-              <Route path="/" element={
+              <Route path="/" element={ 
                 <>
                   <Masthead
                     darkMode={darkMode}

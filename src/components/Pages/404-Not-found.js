@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 
 function PageNotFound(props){
+    function prevPage(){
+    }
 
     return(
         <div className="main-container" style={props.darkMode ? {color:"white"} : {color:"black"}}>
@@ -12,9 +14,10 @@ function PageNotFound(props){
             <br/> &&
             <br/>
             }
-            <p>You may have taken a wrong turn somewhere haha.</p>
+            <p>You must be lost you go back to the previous page or go to the home page.</p>
             <div className="main-rows-btns-container">
                 <Link to="/home" className={props.darkMode ? "main-btns-darkmode" : "main-btns-lightMode"}>Home</Link>
+                <Link to={-1} className={props.darkMode ? "main-btns-darkmode" : "main-btns-lightMode"}>Go Back</Link>
             </div>
 
         </div>
