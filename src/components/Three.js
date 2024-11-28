@@ -1,6 +1,7 @@
 import { Canvas}  from "@react-three/fiber"
 import Sphere from "./ThreeJS animations/SphereZoom"
 import OrbitingSpheres from "./ThreeJS animations/OrbitingSpheres"
+import Loading from "./ThreeJS animations/Loading"
 import { OrbitControls } from "@react-three/drei"
 import { useRef, useEffect } from "react"
 
@@ -52,9 +53,11 @@ const Animation = (props)=>{
     )
   }else if(props.animationId === "loading"){
     return(
-      <div>
-        <h1>LOADING....</h1>
-      </div>
+      <Loading
+        darkMode={props.darkMode}
+        size={props.size}
+        count={props.count}
+      />
     )
   }
 }

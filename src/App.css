@@ -71,6 +71,7 @@
   cursor: pointer;
   text-align: center;
   width: 90px;
+  text-decoration: none;
 }
 .main-btns-darkmode{
   color: white;
@@ -78,6 +79,7 @@
   border-radius: 20px;
   cursor: pointer;
   text-align: center;
+  text-decoration: none;
   width: 90px;
 }
 .main-btns-lightMode:hover{ /*main-btns-lightmode*/
@@ -349,7 +351,7 @@
   width: 55%;
   height: 400px;
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .project-list-container::-webkit-scrollbar { /**Ensuring the scrollbar is hidden*/
@@ -360,26 +362,51 @@
 .card {
   min-width: 250px; /* Set a minimum width for cards */
   height: 400px;
-  background-color: #dcdede;
   border-radius: 10px;
   display: grid;
-  grid-template-rows: 40% 49% 11%; /* Adjusted for footer positioning */
+  grid-template-rows: 45% 43% 12%; /* Adjusted for footer positioning */
   word-wrap: break-word; /* Break long words to the next line */
   overflow-wrap: break-word; /* Modern alternative for breaking words */
   white-space: normal; /* Allow text to wrap to the next line */
 }
 /**Project cards sections*/
 .card-upper-section{
-  background-color: rgb(191, 189, 189);
-  padding: 10px;
+  position: relative;
+  color:white;
+  font-weight: bold;
+}
+.card-descr{
+  margin:5px;
+}
+
+.card-img{
+  position:absolute;
+  width: 100%;
+  height: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(65%);
 }
 .card-main-section{
-  padding: 10px;
+  padding: 5px;
+  background-color: white;
+  border: 2px grey solid;
+  border-bottom: none;
+  border-top: none;
+}
+.card-skill-list{
+  display: grid;
+  grid-template: auto / auto auto;
 }
 .card-lower-section{
-  padding: 10px;
+  padding: 5px;
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 2px grey solid;
+  border-top:none ;
 }
 .card-title{
   margin-top:10px;
