@@ -343,7 +343,7 @@
   display: flex; /* Arrange cards in a row */
   overflow-x: auto; /* Enable horizontal scrolling */
   overflow-y: hidden;
-  gap: 10px; /* Optional: Space between cards */
+  gap: 30px; /* Optional: Space between cards */
   padding: 25px; /* Optional: Inner padding for the container */
   white-space: nowrap;
   width: 55%;
@@ -360,14 +360,36 @@
 .card {
   min-width: 250px; /* Set a minimum width for cards */
   height: 400px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  background-color: #dcdede;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 40% 49% 11%; /* Adjusted for footer positioning */
+  word-wrap: break-word; /* Break long words to the next line */
+  overflow-wrap: break-word; /* Modern alternative for breaking words */
+  white-space: normal; /* Allow text to wrap to the next line */
 }
+/**Project cards sections*/
+.card-upper-section{
+  background-color: rgb(191, 189, 189);
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.card-main-section{
+  padding: 10px;
+}
+.card-lower-section{
+  padding: 10px;
+}
+.card-title{
+  margin-top:10px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.card-descr{
+  text-align: left;
+}
+
 
 /*Mobile Design specification*/
 @media (max-width: 640px) { 
