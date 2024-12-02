@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const PCards = (props)=>{
     return(
-        <Link to={`/projects/${props.name}`} className="project-link">
+        <Link to={`/projects/${props.name}`} className="card-link">
         <div className="card">
             <section className="card-upper-section">
                 <img className={!props.darkMode ? "card-img":"card-img-darkMode"} src={require(`../images/${props.image}`)}/>
