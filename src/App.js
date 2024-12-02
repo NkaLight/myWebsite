@@ -4,7 +4,7 @@ import React from "react"
 import Nav from "./components/Nav"
 import Footer from "./components/Footer"
 import Animation from "./components/Three"
-import Project from "./components/Pages/Project"
+import Projects from "./components/Pages/Projects"
 import {
   BrowserRouter,
   Routes,
@@ -112,7 +112,7 @@ function App(){
               }/>
               <Route path='/projects' element={
                 <>
-                  <Project
+                  <Projects
                     darkMode={darkMode}
                     isMobile={isMobile}
                   />
