@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const PCards = (props)=>{
     return(
+        <Link to={`/projects/${props.name}`} className="project-link">
         <div className="card">
             <section className="card-upper-section">
                 <img className={!props.darkMode ? "card-img":"card-img-darkMode"} src={require(`../images/${props.image}`)}/>
@@ -18,14 +20,15 @@ const PCards = (props)=>{
 
             </section>
             <section className={!props.darkMode ? "card-lower-section" : "card-lower-section-darkMode"}>
-                {
-                    <a className={props.darkMode ? "main-btns-darkmode" : "main-btns-lightMode"} href={props.link} target="__blank">
-                        {(props.id) == 4 ? "HackTheBox" : "GitHub" }
-                    </a>
-                }
+                <a 
+                    onClick={(e) => e.stopPropagation()}
+                    className={props.darkMode ? "main-btns-darkmode" : "main-btns-lightMode"} 
+                    href={props.link} target="__blank">
+                    {(props.id) == 4 ? "HackTheBox" : "GitHub" }
+                </a>
             </section>
-            
         </div>
+        </Link>
     )
 }
 

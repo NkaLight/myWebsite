@@ -360,6 +360,13 @@
 }
 
 /**Project Cards*/
+.project-link{ /*Parent Link Router component*/
+  text-decoration: none; 
+  opacity: 0.95;
+}
+.project-link:hover{
+  opacity: 1;
+}
 .card {
   min-width: 250px; /* Set a minimum width for cards */
   height: 400px;
@@ -403,6 +410,7 @@
 
 .card-main-section{
   padding: 5px;
+  color:black;
   background-color: white;
   border: 2px grey solid;
   border-bottom: none;
@@ -428,6 +436,7 @@
   border-bottom-right-radius: 10px;
   border: 2px grey solid;
   border-top:none ;
+  color:black;
 }
 .card-lower-section-darkMode{
   padding:5px;
