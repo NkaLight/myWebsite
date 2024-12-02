@@ -133,6 +133,7 @@
   display: flex;
   justify-content: center;
   font-size: x-large;
+  margin-top: 150px;
 }
 .lower-masthead-anim{
   opacity: 0;
@@ -243,7 +244,7 @@
 .about-text-lightMode{
   font-weight: lighter;
   font-family: Roboto-black;
-  margin:0px 60px;
+  margin:0px 250px;
 }
 .about-text-darkMode{
   font-size:large;
@@ -285,7 +286,7 @@
   position: absolute;
   animation-name: mastheadIcon;
   animation-duration: 1s;
-  animation-delay: 3s;
+  animation-delay: 0s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: linear;

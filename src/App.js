@@ -4,6 +4,7 @@ import React from "react"
 import Nav from "./components/Nav"
 import Footer from "./components/Footer"
 import Animation from "./components/Three"
+import Project from "./components/Pages/Project"
 import {
   BrowserRouter,
   Routes,
@@ -13,7 +14,7 @@ import PageNotFound from "./components/Pages/404-Not-found"
 
 //Lazy loading all components
 const About = lazy(()=> import("./components/Pages/About"))
-const Project = lazy(()=> import("./components/Pages/Project"))
+//const Project = lazy(()=> import("./components/Pages/Project"))
 const Contact = lazy(()=> import("./components/Pages/Contact"))
 const Masthead = lazy(()=> import("./components/Masthead"))
 

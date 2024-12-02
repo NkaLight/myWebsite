@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function Masthead(props){
     const welcomeText = 
-            `Hello there!<br/> my name is<strong> Nkanyiso Ndlovu</strong>,<br/> I am a software enthusiast and aspiring software engineer.
+            `Hello there!<br/> my name is<strong> Nkanyiso Owethu Ndlovu</strong>,<br/> I am a software enthusiast and aspiring software engineer.
             `
     return(
         <div className="main-container">
@@ -23,7 +23,7 @@ export default function Masthead(props){
                     .stop()
                     .start();
                 }}
-            /> : <div>Hello there!<br/> my name is<strong> Nkanyiso Ndlovu</strong>,<br/> I am a software enthusiast and aspiring software engineer.</div>}
+            /> : <div>Hello there!<br/> my name is<strong> Nkanyiso OwethuNdlovu</strong>,<br/> I am a software enthusiast and aspiring software engineer.</div>}
             </div>
             <div className={props.typed ? "lower-masthead-anim" : "lower-masthead"}>
                 <br/>
