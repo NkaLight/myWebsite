@@ -1,8 +1,8 @@
 import React from "react";
-import PCards from "../PCards";
+import PCards from "../PCards.jsx";
 import projectList from "../../data.js"
 
-function Project(props){
+function Projects(props){
     return(
         <div className="main-container" style={props.darkMode ? {color:"white"} : {color:"black"}}>
             <h1>My projects and interests</h1>
@@ -15,4 +15,4 @@ function Project(props){
     )
 }
 
-export default Project;
+export default Projects;

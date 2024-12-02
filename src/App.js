@@ -14,7 +14,7 @@ import PageNotFound from "./components/Pages/404-Not-found"
 
 //Lazy loading all components
 const About = lazy(()=> import("./components/Pages/About"))
-//const Project = lazy(()=> import("./components/Pages/Project"))
+const Project = lazy(()=> import("./components/Pages/Project"))
 const Contact = lazy(()=> import("./components/Pages/Contact"))
 const Masthead = lazy(()=> import("./components/Masthead"))
 
@@ -123,6 +123,20 @@ function App(){
                   />
                 </>
               }/>
+              <Route path='/projects/:name/' element={
+                <>
+                  <Project
+                    darkMode={darkMode}
+                    isMobile={isMobile}
+                  />
+                  <Animation
+                    animationId={"sphereZoom"}
+                    darkMode={darkMode}
+                    size={5}
+                  />
+                </>
+              }
+              />
               <Route path='/contact' element={
                 <>
                   <Contact

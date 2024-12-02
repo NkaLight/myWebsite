@@ -1,7 +1,7 @@
 import React from "react";
 
 const PCards = (props)=>{
-    return(//C:\Users\Nka\Documents\Projects\personal-website\myWebsite\src\images\magicpattern-KfFmwa7m5VQ-unsplash.jpg
+    return(
         <div className="card">
             <section className="card-upper-section">
                 <img className={!props.darkMode ? "card-img":"card-img-darkMode"} src={require(`../images/${props.image}`)}/>
