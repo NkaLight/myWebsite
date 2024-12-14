@@ -8,9 +8,11 @@ const Project = ((props)=>{
     console.log(data);
 
     return(
-        <div className="main-container" style={props.darkMode ? {color:"white"} : {color:"black"}}>
-            <h1>Hello World</h1>
-            <p>{data.name}</p>
+        <div className={props.darkMode ? "project-container-darkMode" :"project-container"}>
+            <h1>{data.name}</h1>
+            <div className="project-card">
+
+            </div>
         </div>
     )
 })

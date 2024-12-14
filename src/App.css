@@ -360,11 +360,11 @@
 }
 
 /**Project Cards*/
-.project-link{ /*Parent Link Router component*/
+.card-link{ /*Parent Link Router component*/
   text-decoration: none; 
   opacity: 0.95;
 }
-.project-link:hover{
+.card-link:hover{
   opacity: 1;
 }
 .card {
@@ -455,6 +455,45 @@
 .card-descr{
   text-align: left;
 }
+
+/* /projects/:name Page*/
+.project-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  position: absolute; /* To control positioning within the parent */
+  top: 50%; /* Move to the middle of the parent */
+  left: 50%; /* Move to the middle of the parent */
+  transform: translate(-50%, -50%); /* Offset by 50% of its width/height for perfect centering */
+
+  width: 50%; /* Maintain desired width */
+  height: 85%; /* Maintain desired height */
+  z-index: 1; /* Ensure it appears above the animation */
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 5%;
+  background-color: white;
+  color:black;
+}
+.project-container-darkMode{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  position: absolute; /* To control positioning within the parent */
+  top: 50%; /* Move to the middle of the parent */
+  left: 50%; /* Move to the middle of the parent */
+  transform: translate(-50%, -50%); /* Offset by 50% of its width/height for perfect centering */
+
+  width: 50%; /* Maintain desired width */
+  height: 85%; /* Maintain desired height */
+  z-index: 1; /* Ensure it appears above the animation */
+  border: 1px solid rgb(53, 53, 53);
+  border-radius: 5%;
+  background-color: black;
+  color:white;
+}
+
 
 
 /*Mobile Design specification*/
