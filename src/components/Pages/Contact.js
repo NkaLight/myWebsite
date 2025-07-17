@@ -1,6 +1,8 @@
 import React from "react";
 
 export default function Contact(props){
+    console.log("Rendering <Contact />");
+    // The Contact component displays contact information and links for the user to reach out.
     return(
         <div className="main-container" style={props.darkMode ? {color:"white"} : {color:"black"}}>
             <h1>Contacts</h1>

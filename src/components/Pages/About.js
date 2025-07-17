@@ -2,7 +2,7 @@ import React from "react";
 
 
 function About(props){
-
+    console.log("Rendering <About />");
     return(
         <div className="main-container" style={props.darkMode ? {color:"white"} : {color:"black"}}>
             <h2>More about me?</h2>

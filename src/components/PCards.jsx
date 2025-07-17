@@ -6,7 +6,7 @@ const PCards = (props)=>{
         <Link to={`/projects/${props.name}`} className="card-link">
         <div className="card">
             <section className="card-upper-section">
-                <img className={!props.darkMode ? "card-img":"card-img-darkMode"} src={require(`../images/${props.image}`)}/>
+                <img className={!props.darkMode ? "card-img":"card-img-darkMode"} src={require(`../images/${props.image}`)} alt={`${props.name} project`} />
                 <div className="card-title"><h4>{props.name}</h4></div>
                 <div className="card-descr">{props.description}</div>
             </section>
@@ -24,7 +24,7 @@ const PCards = (props)=>{
                     onClick={(e) => e.stopPropagation()}
                     className={props.darkMode ? "main-btns-darkmode" : "main-btns-lightMode"} 
                     href={props.link} target="__blank">
-                    {(props.id) == 4 ? "HackTheBox" : "GitHub" }
+                    {(props.id) === 4 ? "HackTheBox" : "GitHub" }
                 </a>
             </section>
         </div>
