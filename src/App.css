@@ -1,49 +1,47 @@
 /*Layout section*/
-.app-container{
-  display: grid ;
-  height: 100vh;
-  grid-template-rows: 15vh 75vh 10vh; /* Adjusted for footer positioning */
-  grid-template-columns: 1fr; /* Single column layout */
-  position: relative; /* Needed for absolute positioning of children */
-  margin:0px;
-  padding:0px;
-  /* opacity: 1; /*For web application navigation transitions*/
-  /*transition: opacity 0.5s ease-in-out; */
-  
-}
-.nav-container{
-  grid-row: 1;
-  grid-column: 1;
-  display: flex;
-  margin:20px 40px;
-  z-index: 999;
-}
-.animation-container{
-  grid-row: 1 / span 3;
-  grid-column: 1;
-  position: relative; /* Maintain relative positioning for 3D animations */
-}
-.main-container{
-  grid-row: 2;
-  grid-column: 1;
-  position: absolute; /* Layer above the animation */
-  margin-top:30px;
+.app-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  top: 0; /* Align with the top of the animation */
-  left: 0; /* Align with the left of the animation */
-  width: 100%; /* Full width to cover the animation */
-  height: 90%; /* Full height to cover the animation */
-  z-index: 1; /* Ensure it appears above the animation */
+  min-height: 100vh; /* grow instead of fixed height */
 }
-.footer{
-  grid-row: 3; /* Updated to be below the main and animation containers */
-  grid-column: 1;
+section {
+  min-height: 80vh;
+  position: relative; /* so animation + content can layer inside */
+  display:flex;
+  justify-content: center;
+  text-align: center;
+  width:100%;
+  margin-bottom: 5em;
+}
+
+.nav-container {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display:flex;
+  margin: 1em 2em;
+  height:100%;
+}
+.animation-container {
+  position: fixed;  /* stays in place as you scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;       /* behind all content */
+}
+
+.main-container {
+  position: relative;
+  width:100%;
+  justify-content: center;
+  z-index: 1; /* sits above animation */
+}
+.footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom:20px;
+  padding: 20px;
   z-index: 999;
 }
 
@@ -115,7 +113,7 @@
   cursor: pointer;
 }
 .home-icon{
-  width:100px;
+  width:100%;
   cursor: pointer;
 }
 .nav-toggle-theme{
@@ -290,13 +288,15 @@
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: linear;
+  rotate: 90deg;
+  size:5em;
 }
  @keyframes mastheadIcon {
     from{
-      margin-left:280px;
+      margin-top:1em;
     }
     to{
-      margin-left:320px;
+      margin-top:2em;
     }
  }
  @keyframes react-fadeToLight{
@@ -346,11 +346,10 @@
   display: flex; /* Arrange cards in a row */
   overflow-x: auto; /* Enable horizontal scrolling */
   overflow-y: hidden;
-  gap: 30px; /* Optional: Space between cards */
+  margin:0 auto;
+  gap: 1em; /* Optional: Space between cards */
   padding: 25px; /* Optional: Inner padding for the container */
   white-space: nowrap;
-  width: 55%;
-  height: 400px;
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   scrollbar-width: none;  /* Firefox */
 }
@@ -359,102 +358,6 @@
   display: none;  /* Safari and Chrome */
 }
 
-/**Project Cards*/
-.card-link{ /*Parent Link Router component*/
-  text-decoration: none; 
-  opacity: 0.95;
-}
-.card-link:hover{
-  opacity: 1;
-}
-.card {
-  min-width: 250px; /* Set a minimum width for cards */
-  height: 400px;
-  border-radius: 10px;
-  display: grid;
-  grid-template-rows: 45% 43% 12%; /* Adjusted for footer positioning */
-  word-wrap: break-word; /* Break long words to the next line */
-  overflow-wrap: break-word; /* Modern alternative for breaking words */
-  white-space: normal; /* Allow text to wrap to the next line */
-}
-/**Project cards sections*/
-.card-upper-section{
-  position: relative;
-  color:white;
-  font-weight: bold;
-}
-.card-descr{
-  margin:5px;
-}
-
-.card-img{
-  position:absolute;
-  width: 100%;
-  height: 100%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  object-fit: cover;
-  z-index: -1;
-  filter: brightness(65%);
-}
-.card-img-darkMode{
-  position:absolute;
-  width: 100%;
-  height: 100%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  object-fit: cover;
-  z-index: -1;
-  filter: brightness(35%);
-}
-
-.card-main-section{
-  padding: 5px;
-  color:black;
-  background-color: white;
-  border: 2px grey solid;
-  border-bottom: none;
-  border-top: none;
-}
-.card-main-section-darkMode{
-  padding:5px;
-  color:white;
-  background-color: black;
-  border: 2px grey solid;
-  border-bottom: none;
-  border-top: none;
-
-}
-.card-skill-list{
-  display: grid;
-  grid-template: auto / auto auto;
-}
-.card-lower-section{
-  padding: 5px;
-  background-color: white;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border: 2px grey solid;
-  border-top:none ;
-  color:black;
-}
-.card-lower-section-darkMode{
-  padding:5px;
-  color:white;
-  background-color: black;
-  border: 2px grey solid;
-  border-top:none ;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-.card-title{
-  margin-top:10px;
-  text-align: center;
-  margin-bottom: 5px;
-}
-.card-descr{
-  text-align: left;
-}
 
 /* /projects/:name Page*/
 .project-container{
@@ -470,9 +373,7 @@
   width: 50%; /* Maintain desired width */
   height: 85%; /* Maintain desired height */
   z-index: 1; /* Ensure it appears above the animation */
-  border: 1px solid rgb(211, 211, 211);
   border-radius: 5%;
-  background-color: white;
   color:black;
 }
 .project-container-darkMode{
@@ -599,4 +500,215 @@
   .footer{
     margin-top:10%;
   }
+}
+
+
+
+.equalizer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 5px;
+  height: 40px;
+  margin-top: 20px;
+}
+
+.bar {
+  width: 6px;
+  border-radius: 3px;
+  background-color: white; /* or black for light mode */
+  animation: bounce 1.2s ease-in-out infinite;
+}
+
+/* Each bar gets a different height and delay for a natural feel */
+.bar:nth-child(1) { height: 20px; animation-delay: 0s; }
+.bar:nth-child(2) { height: 35px; animation-delay: 0.2s; }
+.bar:nth-child(3) { height: 15px; animation-delay: 0.4s; }
+.bar:nth-child(4) { height: 30px; animation-delay: 0.1s; }
+.bar:nth-child(5) { height: 25px; animation-delay: 0.3s; }
+
+@keyframes bounce {
+  0%, 100% { transform: scaleY(0.4); }
+  50%       { transform: scaleY(1); }
+}
+
+
+.home-container-nav{
+  display: flex;
+}
+
+.home-icon-wrapper{
+  display: flex;        /* ADD THIS - makes children sit inline */
+  flex-direction: row;  /* ADD THIS - explicitly side by side */
+  align-items: center;  /* ADD THIS - vertically centered */
+  gap: 0.5em; 
+  width: fit-content;
+}
+
+.github-avatar {
+  width: 100%;          /* fixed instead of 100% */
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid;
+  transition: border 0.3s ease;
+  animation: metallicGreen 2s ease-in-out infinite alternate;
+}
+@keyframes metallicGreen {
+  0%   { border-color: #083a19; box-shadow: 0 0 4px #10ff63; }  /* dark forest green */
+  25%  { border-color: #0a3c08; box-shadow: 0 0 8px #12a563; }  /* mid green */
+  50%  { border-color: #04811f; box-shadow: 0 0 12px #0a6009; } /* bright metallic green */
+  75%  { border-color: #0ed71b; box-shadow: 0 0 8px #0a9649; }  /* light shimmer */
+  100% { border-color: #075f26; box-shadow: 0 0 15px #05451b; } /* bright gleam */
+}
+@keyframes metallicGreenColor {
+  0%   { color: #083a19;}  /* dark forest green */
+  25%  { color: #0a3c08;}  /* mid green */
+  50%  { color: #04811f;} /* bright metallic green */
+  75%  { color: #0ed71b;}  /* light shimmer */
+  100% { color: #075f26; } /* bright gleam */
+}
+
+
+.github-avatar-wrapper {
+  display: grid;        /* for the overlay icon trick */
+  position: relative;
+  width: 100%;          /* fixed size instead of 100% */
+  height: 100%;
+}
+.github-icon-overlay {
+  position: absolute;
+  left:95%;
+  bottom: 0%;
+  width: 25%;
+  height: 25%;
+  opacity: 1;
+  animation: metallicGreenColor 2s ease-in-out infinite alternate;
+}
+
+.default-icon { 
+  opacity: 1; 
+  transition: opacity 0.3s ease; 
+  width:5em;
+  padding:0.5em; 
+}
+.hover-icon {
+  opacity: 1;
+  width: 4.5em;
+  padding:0.5em; 
+  animation: hideAfterLoad 5s ease forwards; /* show for 3s then hide */
+  transition: opacity 1s ease, width 1s ease;
+  color: #05451b;
+}
+
+@keyframes hideAfterLoad {
+  0%   { opacity: 1; width: 4.5em;padding:0.5em;  } /* visible on load */
+  70%  { opacity: 1; width: 4.5em; padding:0.5em;  } /* stays visible */
+  100% { opacity: 0; width: 0; padding:0.5em; }    /* fades out */
+}
+@keyframes easeIn {
+  from { opacity: 0; width: 0;     padding: 0; }
+  to   { opacity: 1; width: 4.5em; padding: 0.5em; }
+}
+
+.home-icon-wrapper:hover .hover-icon { 
+  opacity: 1; 
+  width: 4.5em; /* slides in next to home icon */
+  animation:easeIn 0.5s ease forwards;
+  padding:0.5em;
+}
+.card {
+  min-width: 250px; /* Set a minimum width for cards */
+  height: 400px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 45% 43% 12%; /* Adjusted for footer positioning */
+  word-wrap: break-word; /* Break long words to the next line */
+  overflow-wrap: break-word; /* Modern alternative for breaking words */
+  white-space: normal; /* Allow text to wrap to the next line */
+}
+/**Project cards sections*/
+.card-upper-section{
+  position: relative;
+  color:white;
+  font-weight: bold;
+}
+.card-descr{
+  margin:5px;
+}
+
+.card-img{
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(65%);
+}
+.card-img-darkMode{
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(35%);
+}
+
+.card-main-section{
+  padding: 5px;
+  color:black;
+  background-color: white;
+  border: 2px grey solid;
+  border-bottom: none;
+  border-top: none;
+}
+.card-main-section-darkMode{
+  padding:5px;
+  color:white;
+  background-color: black;
+  border: 2px grey solid;
+  border-bottom: none;
+  border-top: none;
+
+}
+.card-skill-list{
+  display: grid;
+  grid-template: auto / auto auto;
+}
+.card-lower-section{
+  padding: 5px;
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 2px grey solid;
+  border-top:none ;
+  color:black;
+}
+.card-lower-section-darkMode{
+  padding:5px;
+  color:white;
+  background-color: black;
+  border: 2px grey solid;
+  border-top:none ;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.card-title{
+  margin-top:10px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.card-descr{
+  text-align: left;
+}
+.project-stack-container{
+  position: relative;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  justify-content: center;
 }

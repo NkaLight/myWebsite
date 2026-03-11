@@ -1,7 +1,6 @@
 import Typewriter from 'typewriter-effect';
 import whiteArrow from "../images/icon.png";
 import blackArrow from "../images/Fill.png";
-import { Link } from "react-router-dom";
 
 export default function Masthead(props){
     const welcomeText = 
@@ -11,25 +10,23 @@ export default function Masthead(props){
     return(
         <div className="main-container">
             <div className="masthead-typedtext" id="typedText" style={props.darkMode ? {color: "white"} : {color: "black"}}>
-            {props.typed ? <Typewriter
-                onInit={(typewriter) => {
-                    
-                    typewriter.pauseFor(1000)
-                    .changeDelay(80)
-                    .typeString(welcomeText)
-                    .callFunction(() => {
-
-                    })
-                    .stop()
-                    .start();
-                }}
-            /> : <div>Hello there!<br/> my name is<strong> Nkanyiso Ndlovu</strong>,<br/> I am a software enthusiast and aspiring software engineer.</div>}
+                <div>Hello there!<br/> my name is<strong> Nkanyiso Ndlovu</strong>,<br/> I am a software enthusiast and aspiring software engineer.</div>
+                <br/>
             </div>
             <div className={props.typed ? "lower-masthead-anim" : "lower-masthead"}>
+                <div className="equalizer">
+                    {[...Array(5)].map((_, i) => (
+                        <span 
+                        key={i} 
+                        className="bar" 
+                        style={{ backgroundColor: props.darkMode ? "white" : "black" }}
+                        />
+                    ))}
+                </div>
                 <br/>
                 <div className="masthead-btn-container">
-                    <Link to="/about"><div className={props.darkMode ? "masthead-btns-darkMode" : "masthead-btns-lightMode"}>More about me</div></Link>
-                    <Link to="/projects"><div className={props.darkMode ? "masthead-btns-darkMode" : "masthead-btns-lightMode"}>Projects</div></Link>
+                    <a href="#about"><div className={props.darkMode ? "masthead-btns-darkMode" : "masthead-btns-lightMode"}>More about me</div></a>
+                    <a href="#projects"><div className={props.darkMode ? "masthead-btns-darkMode" : "masthead-btns-lightMode"}>Projects</div></a>
                     <img src={props.darkMode ? whiteArrow : blackArrow } alt="" className="masthead-icons" style={props.darkMode ? {width: "40px ", height:"30px", marginTop:"23px"} : {width:"30px", height:"20px", marginTop:"28px"}}/>
                 </div>
             </div>

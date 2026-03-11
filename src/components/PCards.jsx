@@ -1,10 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const PCards = (props)=>{
-    return(
-        <Link to={`/projects/${props.name}`} className="card-link">
-        <div className="card">
+const PCards = (props) => {
+  return (
+    <div className="card">
             <section className="card-upper-section">
                 <img className={!props.darkMode ? "card-img":"card-img-darkMode"} src={require(`../images/${props.image}`)} alt={`${props.name} project`} />
                 <div className="card-title"><h4>{props.name}</h4></div>
@@ -28,8 +26,8 @@ const PCards = (props)=>{
                 </a>
             </section>
         </div>
-        </Link>
-    )
+  )
 }
+
 
 export default PCards

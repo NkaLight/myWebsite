@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 
 function PageNotFound(props){
@@ -14,8 +13,8 @@ function PageNotFound(props){
             }
             <p>You must be lost you go back to the previous page or go to the home page.</p>
             <div className="main-rows-btns-container">
-                <Link to="/home" className={props.darkMode ? "main-btns-darkmode" : "main-btns-lightMode"}>Home</Link>
-                <Link to={-1} className={props.darkMode ? "main-btns-darkmode" : "main-btns-lightMode"}>Go Back</Link>
+                <a href="#home" className={props.darkMode ? "main-btns-darkmode" : "main-btns-lightMode"}>Home</a>
+                <a href={-1} className={props.darkMode ? "main-btns-darkmode" : "main-btns-lightMode"}>Go Back</a>
             </div>
 
         </div>
