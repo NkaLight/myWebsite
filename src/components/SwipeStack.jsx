@@ -1,9 +1,8 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 
 const lerp = (a, b, t) => a + (b - a) * t;
-const FLY_SPEED = 1200;// how far off screen the card flies (in px)
-const FLY_THRESHOLD = 60; //how far you must drag before it flies away
-const STACK_OFFSET = 12; // how many px each card peeks above the one in front
+const FLY_THRESHOLD = 60; 
+const STACK_OFFSET = 12; 
 
 export default function SwipeStack({ cards: initial, cardWidth = 300, cardHeight = 380, renderCard, onDismiss }) {
   const [cards, setCards] = useState([...initial]);
@@ -13,11 +12,28 @@ export default function SwipeStack({ cards: initial, cardWidth = 300, cardHeight
   const startPos = useRef({ x: 0, y: 0 });
   const containerRef = useRef(null);
 
+  // Dynamic fly speed based on screen width to prevent horizontal overflow issues
+  const FLY_SPEED = typeof window !== 'undefined' ? window.innerWidth + 200 : 1000;
+
   const getPos = (e) => {
     const r = containerRef.current.getBoundingClientRect();
-    const src = e.touches?.[0] ?? e;
-    return { x: src.clientX - r.left, y: src.clientY - r.top };
+    return { x: e.clientX - r.left, y: e.clientY - r.top };
   };
+
+  const dismiss = useCallback((dx, dy, dist) => {
+    const dir = { x: (dx / dist) * FLY_SPEED, y: (dy / dist) * FLY_SPEED };
+    setTimeout(() => {
+      setCards(c => { 
+        const n = [...c]; 
+        const top = n.pop(); 
+        onDismiss?.(top); 
+        n.unshift(top); 
+        return n; 
+      });
+      setTransform({ dx: 0, dy: 0, flyDir: null });
+    }, 450);
+    return { dx, dy, flyDir: dir };
+  }, [onDismiss, FLY_SPEED]);
 
   const onDown = (e) => {
     if (transform.flyDir) return;
@@ -26,20 +42,17 @@ export default function SwipeStack({ cards: initial, cardWidth = 300, cardHeight
     setTransform({ dx: 0, dy: 0, flyDir: null });
   };
 
-  const dismiss = (dx, dy, dist) => {
-    const dir = { x: (dx / dist) * FLY_SPEED, y: (dy / dist) * FLY_SPEED };
-    setTimeout(() => {
-      setCards(c => { const n = [...c]; const top = n.pop(); onDismiss?.(top); n.unshift(top); return n; });
-      setTransform({ dx: 0, dy: 0, flyDir: null });
-    }, 450);
-    return { dx, dy, flyDir: dir };
-  };
-
   useEffect(() => {
     const onMove = (e) => {
       if (!isDown.current) return;
-      const p = getPos(e);
-      setTransform(prev => ({ ...prev, dx: p.x - startPos.current.x, dy: p.y - startPos.current.y }));
+      requestAnimationFrame(() => {
+        const p = getPos(e);
+        setTransform(prev => ({ 
+          ...prev, 
+          dx: p.x - startPos.current.x, 
+          dy: p.y - startPos.current.y 
+        }));
+      });
     };
 
     const onUp = () => {
@@ -54,13 +67,14 @@ export default function SwipeStack({ cards: initial, cardWidth = 300, cardHeight
       });
     };
 
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mouseup", onUp);
+    // Using pointer events covers mouse, touch, and pen in one go
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
     return () => {
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("mouseup", onUp);
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
     };
-  }, []);
+  }, [dismiss]); // Dependency array now satisfied
 
   const { dx, dy, flyDir } = transform;
   const dist = Math.sqrt(dx * dx + dy * dy);
@@ -70,25 +84,15 @@ export default function SwipeStack({ cards: initial, cardWidth = 300, cardHeight
   return (
     <div
       ref={containerRef}
-      onMouseDown={onDown}
-      onTouchStart={onDown}
-      onTouchMove={(e) => {
-        if (!isDown.current) return;
-        const p = getPos(e);
-        setTransform(prev => ({ ...prev, dx: p.x - startPos.current.x, dy: p.y - startPos.current.y }));
+      onPointerDown={onDown}
+      style={{ 
+        position: "relative", 
+        width: cardWidth, 
+        height: cardHeight,
+        touchAction: "none",
+        userSelect: "none",
+        WebkitUserSelect: "none"
       }}
-      onTouchEnd={() => {
-        if (!isDown.current) return;
-        isDown.current = false;
-        setTransform(prev => {
-          const { dx, dy } = prev;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist > FLY_THRESHOLD) return dismiss(dx, dy, dist);
-          setTimeout(() => setTransform({ dx: 0, dy: 0, flyDir: null }), 300);
-          return { dx: 0, dy: 0, flyDir: null };
-        });
-      }}
-      style={{ position: "relative", width: cardWidth, height: cardHeight }}
     >
       {cards.map((card, i) => {
         const depth = cards.length - 1 - i;
@@ -126,7 +130,7 @@ export default function SwipeStack({ cards: initial, cardWidth = 300, cardHeight
             position: "absolute", inset: 0,
             width: cardWidth, height: cardHeight,
             borderRadius: 16, overflow: "hidden",
-            transform: `translate(${tx}px, ${ty}px) rotate(${rotate}deg) scale(${scale})`,
+            transform: `translate3d(${tx}px, ${ty}px, 0) rotate(${rotate}deg) scale(${scale})`,
             transformOrigin: "center bottom",
             transition, opacity,
             zIndex: isTop ? 100 : i,

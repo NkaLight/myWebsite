@@ -1,4 +1,4 @@
-import React from "react";
+import PCards from "../PCards"
 import SwipeStack from "../SwipeStack";
 
 
@@ -19,16 +19,17 @@ function About(props){
             <br/> &&
             <br/>
             }
-            <div className="polaroid-scatter-container">
+            <div className="project-stack-container">
                 <SwipeStack
-                cards={data}
-                renderCard={(data, isTop, i) => (
-                    <div className={`polaroid polaroid-${i + 1}`} key={i}>
-                        <img src={data.src} alt={data.caption} />
-                        <p>{data.caption}</p>
-                    </div>
-                )}
-            />
+                    cards={data}
+                    renderCard={(data, isTop) => (
+                        <PCards
+                            name={data.caption}
+                            //image={data.src}
+                            technologies={data.technologies}
+                        />
+                    )}
+                />
             </div>
         </div>
     )

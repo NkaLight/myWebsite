@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* grow instead of fixed height */
+  overflow-x: hidden;
 }
 section {
   min-height: 80vh;
@@ -711,4 +712,6 @@ section {
   justify-self: center;
   align-self: center;
   justify-content: center;
+  overflow-y: hidden;
+  padding:2em;
 }
