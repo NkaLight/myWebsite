@@ -36,7 +36,7 @@ section {
   position: relative;
   width:100%;
   justify-content: center;
-  z-index: 1; /* sits above animation */
+  z-index: 0; /* sits above animation */
 }
 .footer {
   display: flex;
@@ -47,9 +47,7 @@ section {
 }
 
 /*Main buttons*/
-.main-btns-container{
-  
-}
+
 .main-rows-btns-container{
   display: flex;
   flex-direction: column;
@@ -400,16 +398,6 @@ section {
 
 /*Mobile Design specification*/
 @media (max-width: 640px) { 
-  .animation-container{
-    position:absolute;
-    background-color: rgba(41, 39, 39, 0);
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    margin-bottom: 100px;
-  }
   .nav-container{
     width:100%;
     margin: 0px 0px;
@@ -418,8 +406,18 @@ section {
     display: none;
   }
   .home-icon{
-    margin-left:10px;
-    margin-top:30px;
+    margin-left:1em;
+    margin-top:1em;
+    width:4em;
+    background-color: pink;
+  }
+  .hover-icon {
+    opacity: 1 !important;      /* Force visibility */
+    width: 4em !important;    /* Force a constant width */
+    animation: none !important; /* This stops it from running hideAfterLoad */
+    transition: none !important;
+    margin:0px;
+    width:4em;
   }
   .nav-toggle-theme{
     margin-left:auto;
@@ -428,23 +426,23 @@ section {
   }
   .nav-items-container-darkMode{
    position: absolute;
-   z-index:999999999;
+   z-index:99;
    display: flex;
    flex-direction: column;
    align-items: center;
    width:100%;
-   height: 100%;
+   height: 100vh;
    background-color: black;
    color:white
   }
   .nav-items-container-lightMode{
     position: absolute;
-    z-index:999999999;
+    z-index:99;
     display: flex;
     flex-direction: column;
     align-items: center;
     width:100%;
-    height: 100%;
+    height: 100vh;
     background-color: white;
     color:black;
   }
@@ -461,11 +459,23 @@ section {
     padding:40px;
     text-decoration: none;
   }
-  .nav-icon{
-    width: 15px;
-    position: relative;
-    margin-left:auto;
-    margin-right: 30px;
+  .github-avatar{
+    width:90%;
+    margin:0px;
+    padding:0px
+  }
+  .github-avatar-wrapper{
+    width:100%;
+    margin:0px;
+    padding:0px
+  }
+  .github-avatar{
+    margin:0px;
+    padding:0px;
+  }
+  .github-icon-overlay{
+    margin:0px;
+    padding:0px;
   }
   .masthead-container{
     margin:0px 35px;
@@ -574,8 +584,6 @@ section {
 .github-avatar-wrapper {
   display: grid;        /* for the overlay icon trick */
   position: relative;
-  width: 100%;          /* fixed size instead of 100% */
-  height: 100%;
 }
 .github-icon-overlay {
   position: absolute;
@@ -595,7 +603,6 @@ section {
 }
 .hover-icon {
   opacity: 1;
-  width: 4.5em;
   padding:0.5em; 
   animation: hideAfterLoad 5s ease forwards; /* show for 3s then hide */
   transition: opacity 1s ease, width 1s ease;
@@ -614,7 +621,7 @@ section {
 
 .home-icon-wrapper:hover .hover-icon { 
   opacity: 1; 
-  width: 4.5em; /* slides in next to home icon */
+  /* slides in next to home icon */
   animation:easeIn 0.5s ease forwards;
   padding:0.5em;
 }
